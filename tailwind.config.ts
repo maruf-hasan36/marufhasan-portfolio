@@ -59,9 +59,8 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        "blood-red": "hsl(var(--blood-red))",
-        "neon-cyan": "hsl(var(--neon-cyan))",
-        "soft-white": "hsl(var(--soft-white))",
+        "electric-cyan": "hsl(var(--electric-cyan))",
+        "neon-purple": "hsl(var(--neon-purple))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -89,6 +88,10 @@ export default {
           "0%, 100%": { opacity: "0.6" },
           "50%": { opacity: "1" },
         },
+        orbit: {
+          "0%": { transform: "rotate(0deg) translateX(120px) rotate(0deg)" },
+          "100%": { transform: "rotate(360deg) translateX(120px) rotate(-360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -96,6 +99,7 @@ export default {
         shimmer: "shimmer 3s linear infinite",
         float: "float 6s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        orbit: "orbit 20s linear infinite",
       },
     },
   },
