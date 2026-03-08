@@ -26,13 +26,18 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
-  const login = useCallback((email: string, _password: string) => {
-    // Demo auth — accepts any credentials
+  const login = useCallback((email: string, password: string) => {
+    // Admin credentials
+    if (email === "marufhasanbr@gmail.com" && password === "maruf123") {
+      setUser({ id: "admin-1", name: "Maruf Hasan", email, isAdmin: true });
+      return true;
+    }
+    // Regular user login — accepts any other credentials
     setUser({
       id: "user-1",
       name: email.split("@")[0],
       email,
-      isAdmin: email.includes("admin"),
+      isAdmin: false,
     });
     return true;
   }, []);

@@ -115,7 +115,7 @@ const AuthPage = () => {
               </button>
 
               <p className="text-xs text-center text-muted-foreground">
-                Use <span className="text-primary">admin@orbita.com</span> for admin access
+                Admin: <span className="text-primary">marufhasanbr@gmail.com</span> / <span className="text-primary">maruf123</span>
               </p>
             </form>
           ) : (
