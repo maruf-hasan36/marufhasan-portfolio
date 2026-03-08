@@ -1,32 +1,30 @@
-import ParticleCanvas from "@/components/ParticleCanvas";
-import ScrollProgress from "@/components/ScrollProgress";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Timeline from "@/components/Timeline";
-import GitHubStats from "@/components/GitHubStats";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import CursorFollower from "@/components/CursorFollower";
+import BloodstreamScene from "@/components/BloodstreamScene";
+import HemoScrollProgress from "@/components/HemoScrollProgress";
+import HemoNavbar from "@/components/HemoNavbar";
+import HemoHero from "@/components/HemoHero";
+import Mission from "@/components/Mission";
+import FindDonor from "@/components/FindDonor";
+import BecomeDonor from "@/components/BecomeDonor";
+import EmergencyRequests from "@/components/EmergencyRequests";
+import ImpactStats from "@/components/ImpactStats";
+import CommunityHeroes from "@/components/CommunityHeroes";
+import HemoFooter from "@/components/HemoFooter";
 
 const Index = () => (
   <div className="relative min-h-screen">
-    <ParticleCanvas />
-    <ScrollProgress />
-    <CursorFollower />
-    <Navbar />
+    <BloodstreamScene />
+    <HemoScrollProgress />
+    <HemoNavbar />
     <main className="relative z-10">
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Timeline />
-      <GitHubStats />
-      <Contact />
+      <HemoHero />
+      <Mission />
+      <FindDonor />
+      <BecomeDonor />
+      <EmergencyRequests />
+      <ImpactStats />
+      <CommunityHeroes />
     </main>
-    <Footer />
+    <HemoFooter />
   </div>
 );
 
