@@ -7,10 +7,12 @@ import Projects from "@/components/Projects";
 import Timeline from "@/components/Timeline";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CursorFollower from "@/components/CursorFollower";
 
 const Index = () => (
   <div className="relative min-h-screen">
     <ParticleCanvas />
+    <CursorFollower />
     <Navbar />
     <main className="relative z-10">
       <Hero />

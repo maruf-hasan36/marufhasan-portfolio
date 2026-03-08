@@ -1,12 +1,27 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
-
-const words = ["Scale", "AI", "React", "Node", "Next.js", "Cloud"];
+import marufPhoto from "@/assets/maruf-photo.png";
 
 const About = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  const imgRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useSpring(useTransform(y, [-150, 150], [12, -12]), { stiffness: 200, damping: 20 });
+  const rotateY = useSpring(useTransform(x, [-150, 150], [-12, 12]), { stiffness: 200, damping: 20 });
+  const glowX = useSpring(useTransform(x, [-150, 150], [20, 80]), { stiffness: 200, damping: 20 });
+  const glowY = useSpring(useTransform(y, [-150, 150], [20, 80]), { stiffness: 200, damping: 20 });
+
+  const handleMouse = (e: React.MouseEvent) => {
+    const rect = imgRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    x.set(e.clientX - rect.left - rect.width / 2);
+    y.set(e.clientY - rect.top - rect.height / 2);
+  };
+
+  const handleLeave = () => { x.set(0); y.set(0); };
 
   return (
     <section id="about" className="py-32 relative" ref={ref}>
@@ -36,42 +51,54 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Floating word cloud */}
+          {/* Photo with 3D tilt + glow */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-80 flex items-center justify-center"
+            className="flex items-center justify-center"
           >
-            {words.map((word, i) => (
-              <motion.span
-                key={word}
-                className="absolute font-mono text-lg md:text-xl font-medium"
+            <motion.div
+              ref={imgRef}
+              onMouseMove={handleMouse}
+              onMouseLeave={handleLeave}
+              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+              className="relative group cursor-default"
+            >
+              {/* Animated glow behind photo */}
+              <motion.div
+                className="absolute -inset-4 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
                 style={{
-                  color: i % 2 === 0 ? "hsl(186 100% 50%)" : "hsl(270 100% 57%)",
+                  background: useTransform(
+                    [glowX, glowY],
+                    ([gx, gy]) =>
+                      `radial-gradient(circle at ${gx}% ${gy}%, hsl(186 100% 50% / 0.25), hsl(270 100% 57% / 0.15), transparent 70%)`
+                  ),
                 }}
-                animate={{
-                  y: [0, -15, 0],
-                  x: [0, (i % 2 === 0 ? 5 : -5), 0],
-                  rotate: [0, (i % 2 === 0 ? 3 : -3), 0],
+              />
+
+              {/* Border glow */}
+              <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background: "linear-gradient(135deg, hsl(186 100% 50% / 0.4), hsl(270 100% 57% / 0.4))",
+                  padding: "1px",
+                  mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                  maskComposite: "exclude",
+                  WebkitMaskComposite: "xor",
+                  borderRadius: "1rem",
                 }}
-                transition={{
-                  duration: 4 + i * 0.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.3,
-                }}
-                initial={{
-                  top: `${15 + (i % 3) * 30}%`,
-                  left: `${10 + (i % 2) * 25 + Math.floor(i / 2) * 15}%`,
-                }}
-              >
-                {word}
-              </motion.span>
-            ))}
-            {/* Decorative ring */}
-            <div className="w-48 h-48 rounded-full border border-border/30 animate-[spin_20s_linear_infinite]" />
-            <div className="absolute w-32 h-32 rounded-full border border-glow-cyan/20 animate-[spin_15s_linear_infinite_reverse]" />
+              />
+
+              <div className="relative overflow-hidden rounded-2xl" style={{ transform: "translateZ(40px)" }}>
+                <img
+                  src={marufPhoto}
+                  alt="Maruf Hasan"
+                  className="w-72 h-80 md:w-80 md:h-96 object-cover object-top"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
