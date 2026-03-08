@@ -23,16 +23,19 @@ const OrbitaHero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero background image */}
+      <div className="absolute inset-0 z-[0]">
+        <img src={heroFitness} alt="FITVERSE PRO Hero" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
+      </div>
+
       {/* Atmospheric glows */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-20"
-          style={{ background: "radial-gradient(ellipse, hsl(0 85% 55% / 0.15), transparent 70%)" }} />
-        <div className="absolute bottom-0 right-0 w-[800px] h-[800px] opacity-15"
-          style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.08), transparent 70%)" }} />
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] opacity-10"
-          style={{ background: "radial-gradient(circle, hsl(30 100% 55% / 0.08), transparent 70%)" }} />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-15"
+          style={{ background: "radial-gradient(ellipse, hsl(0 85% 55% / 0.12), transparent 70%)" }} />
         {/* Grid */}
-        <div className="absolute inset-0 opacity-[0.02]"
+        <div className="absolute inset-0 opacity-[0.015]"
           style={{
             backgroundImage: "linear-gradient(hsl(0 85% 55%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 85% 55%) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
