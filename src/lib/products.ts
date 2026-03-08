@@ -1,9 +1,9 @@
-import productHeadphones from "@/assets/product-headphones.jpg";
-import productSmartwatch from "@/assets/product-smartwatch.jpg";
-import productGlasses from "@/assets/product-glasses.jpg";
-import productController from "@/assets/product-controller.jpg";
-import productDrone from "@/assets/product-drone.jpg";
-import productSpeaker from "@/assets/product-speaker.jpg";
+import fitDumbbells from "@/assets/fit-dumbbells.jpg";
+import fitSmartwatch from "@/assets/fit-smartwatch.jpg";
+import fitSupplement from "@/assets/fit-supplement.jpg";
+import fitBands from "@/assets/fit-bands.jpg";
+import fitJumprope from "@/assets/fit-jumprope.jpg";
+import fitYogamat from "@/assets/fit-yogamat.jpg";
 
 export interface Product {
   id: string;
@@ -20,68 +20,68 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "1",
-    name: "NeuroSync Pro X",
-    description: "AI-powered adaptive noise cancellation headphones with spatial audio processing and neural response optimization.",
-    price: 499,
-    image: productHeadphones,
-    category: "Audio",
+    name: "NeuroDumb Pro X",
+    description: "AI-powered smart dumbbells with real-time rep counting, form analysis, and adaptive resistance feedback via integrated LED display.",
+    price: 349,
+    image: fitDumbbells,
+    category: "Equipment",
     rating: 4.9,
     inStock: true,
-    features: ["Neural ANC", "Spatial Audio", "40hr Battery", "Titanium Frame"],
+    features: ["AI Rep Counter", "Form Analysis", "LED Display", "Auto Resistance"],
   },
   {
     id: "2",
-    name: "Chrono Vertex",
-    description: "Holographic display smartwatch with real-time biometric AI, quantum-encrypted communications, and orbital GPS.",
-    price: 899,
-    image: productSmartwatch,
+    name: "PulseForge HRV Watch",
+    description: "Holographic biometric smartwatch with real-time HRV, VO2max estimation, sleep staging, and AI-driven recovery optimization.",
+    price: 599,
+    image: fitSmartwatch,
     category: "Wearables",
     rating: 4.8,
     inStock: true,
-    features: ["Holo Display", "Bio AI", "Quantum Encrypt", "7-day Battery"],
+    features: ["Holo Display", "HRV Tracking", "VO2max AI", "7-day Battery"],
   },
   {
     id: "3",
-    name: "Prism AR Ultra",
-    description: "Mixed reality AR glasses with 8K retinal projection, real-time translation, and immersive holographic overlays.",
-    price: 1299,
-    image: productGlasses,
-    category: "AR/VR",
+    name: "Apex Whey Isolate",
+    description: "Precision-engineered whey isolate with 30g protein per serving, zero sugar, enzyme-optimized absorption, and lab-verified purity.",
+    price: 79,
+    image: fitSupplement,
+    category: "Nutrition",
     rating: 4.7,
     inStock: true,
-    features: ["8K Retinal", "Real-time Translate", "Holo Overlay", "All-day Wear"],
+    features: ["30g Protein", "Zero Sugar", "Lab Verified", "Fast Absorb"],
   },
   {
     id: "4",
-    name: "Phantom Controller",
-    description: "Haptic feedback gaming controller with adaptive triggers, RGB neural sync, and zero-latency wireless.",
-    price: 199,
-    image: productController,
-    category: "Gaming",
+    name: "FlexForce Band Set",
+    description: "5-tier progressive resistance band system with anti-snap technology, ergonomic handles, and guided workout QR codes.",
+    price: 89,
+    image: fitBands,
+    category: "Equipment",
     rating: 4.9,
     inStock: true,
-    features: ["Haptic Pro", "Zero Latency", "RGB Sync", "Ergonomic"],
+    features: ["5 Levels", "Anti-Snap", "QR Workouts", "Travel Kit"],
   },
   {
     id: "5",
-    name: "Skyline Drone X7",
-    description: "Autonomous AI drone with 8K cinematic camera, obstacle avoidance, and 90-minute flight time.",
-    price: 1599,
-    image: productDrone,
-    category: "Drones",
-    rating: 4.6,
-    inStock: false,
-    features: ["8K Cinema", "AI Pilot", "90min Flight", "Foldable"],
+    name: "SkipSync Pro",
+    description: "Smart jump rope with LED rep counter, calorie tracking, Bluetooth sync, and adjustable weighted handles for HIIT cardio.",
+    price: 129,
+    image: fitJumprope,
+    category: "Cardio",
+    rating: 4.8,
+    inStock: true,
+    features: ["LED Counter", "Bluetooth", "Weighted", "HIIT Mode"],
   },
   {
     id: "6",
-    name: "Echo Sphere",
-    description: "360° spatial audio speaker with AI room calibration, holographic sound visualization, and multi-room sync.",
-    price: 349,
-    image: productSpeaker,
-    category: "Audio",
-    rating: 4.8,
+    name: "ZenBase Mat",
+    description: "Premium 6mm alignment yoga mat with antimicrobial surface, laser-etched guide lines, and ultra-grip texture for hot yoga.",
+    price: 119,
+    image: fitYogamat,
+    category: "Recovery",
+    rating: 4.6,
     inStock: true,
-    features: ["360° Audio", "AI Calibration", "Holo Viz", "Multi-room"],
+    features: ["6mm Thick", "Antimicrobial", "Alignment Lines", "Ultra Grip"],
   },
 ];

@@ -9,8 +9,8 @@ const OrbitaScrollProgress = () => {
       className="fixed top-0 left-0 right-0 h-[3px] z-[60] origin-left"
       style={{
         scaleX,
-        background: "linear-gradient(90deg, hsl(186 100% 50%), hsl(270 100% 57%))",
-        boxShadow: "0 0 10px hsl(186 100% 50% / 0.5)",
+        background: "linear-gradient(90deg, hsl(0 85% 55%), hsl(30 100% 55%))",
+        boxShadow: "0 0 10px hsl(0 85% 55% / 0.5)",
       }}
     />
   );

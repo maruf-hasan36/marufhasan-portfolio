@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useAuth } from "@/lib/auth-context";
 import { Navigate, Link } from "react-router-dom";
 import { products as initialProducts, type Product } from "@/lib/products";
-import { ArrowLeft, Plus, Pencil, Trash2, Package, BarChart3, ShoppingCart } from "lucide-react";
+import { ArrowLeft, Pencil, Trash2, Package, BarChart3, ShoppingCart, Dumbbell } from "lucide-react";
 import OrbitaNavbar from "@/components/OrbitaNavbar";
 import CartSidebar from "@/components/CartSidebar";
 
@@ -37,8 +37,8 @@ const AdminPage = () => {
   };
 
   const analytics = [
-    { label: "Total Revenue", value: "$284,500", icon: BarChart3 },
-    { label: "Orders Today", value: "127", icon: ShoppingCart },
+    { label: "Total Revenue", value: "$184,200", icon: BarChart3 },
+    { label: "Orders Today", value: "89", icon: ShoppingCart },
     { label: "Products", value: String(productList.length), icon: Package },
   ];
 
@@ -51,19 +51,21 @@ const AdminPage = () => {
 
       <div className="relative z-10 section-container pt-28 pb-20">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8">
-          <ArrowLeft className="w-4 h-4" /> Back to Store
+          <ArrowLeft className="w-4 h-4" /> Back to FITVERSE
         </Link>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Admin Dashboard</h1>
-          <p className="text-muted-foreground mb-8">Manage your ORBITA store</p>
+          <div className="flex items-center gap-3 mb-2">
+            <Dumbbell className="w-6 h-6 text-primary" />
+            <h1 className="text-3xl font-bold text-foreground">Admin Dashboard</h1>
+          </div>
+          <p className="text-muted-foreground mb-8">Manage your FITVERSE PRO platform</p>
 
-          {/* Analytics cards */}
           <div className="grid md:grid-cols-3 gap-4 mb-10">
             {analytics.map((a) => (
               <div key={a.label} className="glass-panel rounded-xl p-5 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center"
-                  style={{ background: "hsl(var(--electric-cyan) / 0.1)" }}>
+                  style={{ background: "hsl(var(--signal-red) / 0.1)" }}>
                   <a.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
@@ -74,7 +76,6 @@ const AdminPage = () => {
             ))}
           </div>
 
-          {/* Tabs */}
           <div className="flex gap-1 p-1 rounded-xl bg-muted/20 w-fit mb-8">
             {(["products", "analytics"] as const).map((tab) => (
               <button
@@ -107,7 +108,7 @@ const AdminPage = () => {
                         <input value={editName} onChange={(e) => setEditName(e.target.value)} className={`${inputClasses} flex-1`} />
                         <input value={editPrice} onChange={(e) => setEditPrice(e.target.value)} className={`${inputClasses} w-24`} type="number" />
                         <button onClick={() => saveEdit(product.id)} className="px-4 py-2 rounded-lg text-xs font-semibold text-primary-foreground"
-                          style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))" }}>
+                          style={{ background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))" }}>
                           Save
                         </button>
                         <button onClick={() => setEditingId(null)} className="px-4 py-2 rounded-lg text-xs text-muted-foreground hover:text-foreground glass-panel">
@@ -120,7 +121,7 @@ const AdminPage = () => {
                           <h3 className="text-sm font-medium text-foreground">{product.name}</h3>
                           <p className="text-xs text-muted-foreground">{product.category}</p>
                         </div>
-                        <span className="text-sm font-bold text-gradient-cyan-purple">${product.price}</span>
+                        <span className="text-sm font-bold text-gradient-fire">${product.price}</span>
                         <span className={`text-[10px] px-2 py-1 rounded-full font-bold ${
                           product.inStock
                             ? "bg-green-500/10 text-green-400 border border-green-500/20"
@@ -149,14 +150,14 @@ const AdminPage = () => {
               </h2>
               <div className="space-y-4">
                 {[
-                  { label: "Audio", pct: 42, color: "hsl(186 100% 50%)" },
-                  { label: "Wearables", pct: 28, color: "hsl(270 100% 57%)" },
-                  { label: "AR/VR", pct: 18, color: "hsl(186 80% 40%)" },
-                  { label: "Gaming", pct: 8, color: "hsl(270 80% 45%)" },
-                  { label: "Drones", pct: 4, color: "hsl(186 60% 35%)" },
+                  { label: "Equipment", pct: 38, color: "hsl(0 85% 55%)" },
+                  { label: "Wearables", pct: 25, color: "hsl(186 100% 50%)" },
+                  { label: "Nutrition", pct: 20, color: "hsl(30 100% 55%)" },
+                  { label: "Cardio", pct: 10, color: "hsl(0 60% 45%)" },
+                  { label: "Recovery", pct: 7, color: "hsl(186 60% 40%)" },
                 ].map((cat) => (
                   <div key={cat.label} className="flex items-center gap-4">
-                    <span className="text-sm font-mono w-20 text-muted-foreground">{cat.label}</span>
+                    <span className="text-sm font-mono w-24 text-muted-foreground">{cat.label}</span>
                     <div className="flex-1 h-8 rounded-lg overflow-hidden bg-muted/30">
                       <motion.div
                         initial={{ width: 0 }}

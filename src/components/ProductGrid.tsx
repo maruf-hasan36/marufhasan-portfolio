@@ -19,7 +19,7 @@ const ProductGrid = () => {
   return (
     <section id="products" className="relative py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent, hsl(var(--electric-cyan) / 0.3), transparent)" }} />
+        style={{ background: "linear-gradient(90deg, transparent, hsl(var(--signal-red) / 0.3), transparent)" }} />
 
       <div className="section-container" ref={ref}>
         <motion.div
@@ -28,12 +28,12 @@ const ProductGrid = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="font-mono text-xs tracking-widest text-primary uppercase mb-4 block">Featured Products</span>
+          <span className="font-mono text-xs tracking-widest text-primary uppercase mb-4 block">Performance Gear</span>
           <h2 className="heading-section mb-4">
-            The <span className="text-gradient-cyan-purple">Collection</span>
+            The <span className="text-gradient-fire">Arsenal</span>
           </h2>
           <p className="body-large max-w-2xl mx-auto">
-            Premium technology engineered for the future. Each product is a masterpiece of innovation.
+            Precision-engineered equipment and AI-powered gear designed to push the boundaries of human performance.
           </p>
         </motion.div>
 
@@ -50,7 +50,7 @@ const ProductGrid = () => {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat
-                  ? "bg-primary text-primary-foreground glow-cyan"
+                  ? "bg-primary text-primary-foreground glow-red"
                   : "glass-panel-hover text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -72,7 +72,6 @@ const ProductGrid = () => {
               style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
               onClick={() => setSelectedProduct(product)}
             >
-              {/* Image */}
               <div className="relative h-64 overflow-hidden">
                 <img
                   src={product.image}
@@ -81,7 +80,6 @@ const ProductGrid = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
 
-                {/* Quick actions overlay */}
                 <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <button
                     onClick={(e) => { e.stopPropagation(); setSelectedProduct(product); }}
@@ -99,7 +97,6 @@ const ProductGrid = () => {
                   </button>
                 </div>
 
-                {/* Badge */}
                 {!product.inStock && (
                   <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-muted/80 text-muted-foreground backdrop-blur-sm">
                     Sold Out
@@ -107,19 +104,18 @@ const ProductGrid = () => {
                 )}
               </div>
 
-              {/* Info */}
               <div className="p-5">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-mono tracking-widest text-primary uppercase">{product.category}</span>
                   <div className="flex items-center gap-1">
-                    <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-3 h-3 text-accent fill-accent" />
                     <span className="text-xs text-muted-foreground">{product.rating}</span>
                   </div>
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-1">{product.name}</h3>
                 <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{product.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-gradient-cyan-purple">${product.price}</span>
+                  <span className="text-2xl font-bold text-gradient-fire">${product.price}</span>
                   <div className="flex gap-1">
                     {product.features.slice(0, 2).map((f) => (
                       <span key={f} className="text-[9px] px-2 py-1 rounded-full bg-muted/50 text-muted-foreground font-mono">{f}</span>
@@ -132,7 +128,6 @@ const ProductGrid = () => {
         </div>
       </div>
 
-      {/* Product Modal */}
       {selectedProduct && (
         <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
       )}

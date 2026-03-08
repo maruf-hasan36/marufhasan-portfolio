@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useAuth } from "@/lib/auth-context";
 import { useNavigate } from "react-router-dom";
-import { User, Mail, Lock, ArrowLeft, Sparkles } from "lucide-react";
+import { User, Mail, Lock, ArrowLeft, Zap } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -49,10 +49,9 @@ const AuthPage = () => {
       <OrbitaNavbar />
       <CartSidebar />
 
-      {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] opacity-15"
-          style={{ background: "radial-gradient(ellipse, hsl(186 100% 50% / 0.15), transparent 70%)" }} />
+          style={{ background: "radial-gradient(ellipse, hsl(0 85% 55% / 0.15), transparent 70%)" }} />
       </div>
 
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4 pt-20">
@@ -63,24 +62,23 @@ const AuthPage = () => {
           className="glass-panel rounded-3xl p-8 max-w-md w-full relative overflow-hidden"
         >
           <div className="absolute -top-20 -right-20 w-40 h-40 opacity-15 blur-3xl"
-            style={{ background: "radial-gradient(circle, hsl(186 100% 50%), transparent)" }} />
+            style={{ background: "radial-gradient(circle, hsl(0 85% 55%), transparent)" }} />
 
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" /> Back to Store
+            <ArrowLeft className="w-4 h-4" /> Back to FITVERSE
           </Link>
 
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))" }}>
-              <Sparkles className="w-5 h-5 text-primary-foreground" />
+              style={{ background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))" }}>
+              <Zap className="w-5 h-5 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">{mode === "login" ? "Welcome Back" : "Join ORBITA"}</h1>
+              <h1 className="text-xl font-bold text-foreground">{mode === "login" ? "Welcome Back" : "Join FITVERSE"}</h1>
               <p className="text-xs text-muted-foreground">{mode === "login" ? "Sign in to your account" : "Create a new account"}</p>
             </div>
           </div>
 
-          {/* Tab toggle */}
           <div className="flex gap-1 p-1 rounded-xl bg-muted/30 mb-8">
             {(["login", "register"] as const).map((m) => (
               <button
@@ -110,7 +108,7 @@ const AuthPage = () => {
               {loginForm.formState.errors.password && <p className="text-xs text-destructive">{loginForm.formState.errors.password.message}</p>}
 
               <button type="submit" className="w-full py-4 rounded-xl font-semibold text-primary-foreground"
-                style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))" }}>
+                style={{ background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))" }}>
                 Sign In
               </button>
 
@@ -139,7 +137,7 @@ const AuthPage = () => {
               {registerForm.formState.errors.password && <p className="text-xs text-destructive">{registerForm.formState.errors.password.message}</p>}
 
               <button type="submit" className="w-full py-4 rounded-xl font-semibold text-primary-foreground"
-                style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))" }}>
+                style={{ background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))" }}>
                 Create Account
               </button>
             </form>

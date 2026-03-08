@@ -17,7 +17,7 @@ const ProductModal = ({ product, onClose }: Props) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: "hsl(232 30% 5% / 0.85)", backdropFilter: "blur(12px)" }}
+      style={{ background: "hsl(240 20% 4% / 0.85)", backdropFilter: "blur(12px)" }}
       onClick={onClose}
     >
       <motion.div
@@ -34,14 +34,12 @@ const ProductModal = ({ product, onClose }: Props) => {
         </button>
 
         <div className="grid md:grid-cols-2">
-          {/* Image */}
           <div className="relative h-72 md:h-full">
             <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/50 md:block hidden" />
             <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent md:hidden" />
           </div>
 
-          {/* Details */}
           <div className="p-8">
             <span className="font-mono text-[10px] tracking-widest text-primary uppercase">{product.category}</span>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-2 mb-3">{product.name}</h2>
@@ -49,7 +47,7 @@ const ProductModal = ({ product, onClose }: Props) => {
             <div className="flex items-center gap-2 mb-4">
               <div className="flex items-center gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? "text-yellow-400 fill-yellow-400" : "text-muted"}`} />
+                  <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? "text-accent fill-accent" : "text-muted"}`} />
                 ))}
               </div>
               <span className="text-sm text-muted-foreground">({product.rating})</span>
@@ -57,7 +55,6 @@ const ProductModal = ({ product, onClose }: Props) => {
 
             <p className="text-muted-foreground leading-relaxed mb-6">{product.description}</p>
 
-            {/* Features */}
             <div className="grid grid-cols-2 gap-2 mb-6">
               {product.features.map((f) => (
                 <div key={f} className="flex items-center gap-2 text-sm">
@@ -67,9 +64,8 @@ const ProductModal = ({ product, onClose }: Props) => {
               ))}
             </div>
 
-            {/* Price & CTA */}
             <div className="flex items-center justify-between">
-              <span className="text-3xl font-bold text-gradient-cyan-purple">${product.price}</span>
+              <span className="text-3xl font-bold text-gradient-fire">${product.price}</span>
               <button
                 onClick={() => { if (product.inStock) addToCart(product); }}
                 disabled={!product.inStock}
@@ -79,8 +75,8 @@ const ProductModal = ({ product, onClose }: Props) => {
                     : "bg-muted text-muted-foreground cursor-not-allowed"
                 }`}
                 style={product.inStock ? {
-                  background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))",
-                  boxShadow: "0 0 25px -5px hsl(186 100% 50% / 0.3)",
+                  background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))",
+                  boxShadow: "0 0 25px -5px hsl(0 85% 55% / 0.3)",
                 } : {}}
               >
                 <ShoppingCart className="w-5 h-5" />

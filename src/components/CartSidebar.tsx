@@ -10,17 +10,15 @@ const CartSidebar = () => {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50"
-            style={{ background: "hsl(232 30% 5% / 0.7)", backdropFilter: "blur(4px)" }}
+            style={{ background: "hsl(240 20% 4% / 0.7)", backdropFilter: "blur(4px)" }}
             onClick={() => setIsOpen(false)}
           />
 
-          {/* Sidebar */}
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -28,7 +26,6 @@ const CartSidebar = () => {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="fixed top-0 right-0 h-full w-full max-w-md z-50 glass-panel border-l border-border/30 flex flex-col"
           >
-            {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-border/30">
               <div className="flex items-center gap-3">
                 <ShoppingBag className="w-5 h-5 text-primary" />
@@ -39,7 +36,6 @@ const CartSidebar = () => {
               </button>
             </div>
 
-            {/* Items */}
             <div className="flex-1 overflow-y-auto p-6 space-y-4">
               {items.length === 0 ? (
                 <div className="text-center py-16">
@@ -63,7 +59,7 @@ const CartSidebar = () => {
                     <div className="flex-1 min-w-0">
                       <h3 className="text-sm font-semibold text-foreground truncate">{item.product.name}</h3>
                       <p className="text-xs text-muted-foreground">{item.product.category}</p>
-                      <p className="text-sm font-bold text-gradient-cyan-purple mt-1">${item.product.price}</p>
+                      <p className="text-sm font-bold text-gradient-fire mt-1">${item.product.price}</p>
                     </div>
                     <div className="flex flex-col items-end justify-between">
                       <button onClick={() => removeFromCart(item.product.id)} className="p-1 text-muted-foreground hover:text-destructive transition-colors">
@@ -86,20 +82,19 @@ const CartSidebar = () => {
               )}
             </div>
 
-            {/* Footer */}
             {items.length > 0 && (
               <div className="p-6 border-t border-border/30 space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Total</span>
-                  <span className="text-2xl font-bold text-gradient-cyan-purple">${total.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-gradient-fire">${total.toFixed(2)}</span>
                 </div>
                 <Link
                   to="/checkout"
                   onClick={() => setIsOpen(false)}
                   className="w-full py-4 rounded-xl font-semibold text-primary-foreground flex items-center justify-center gap-2 transition-all"
                   style={{
-                    background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))",
-                    boxShadow: "0 0 25px -5px hsl(186 100% 50% / 0.3)",
+                    background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))",
+                    boxShadow: "0 0 25px -5px hsl(0 85% 55% / 0.3)",
                   }}
                 >
                   Proceed to Checkout

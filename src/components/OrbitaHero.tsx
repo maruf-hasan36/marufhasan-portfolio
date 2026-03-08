@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Sparkles, ShoppingBag } from "lucide-react";
+import { ChevronDown, Zap, Dumbbell } from "lucide-react";
 
 const OrbitaHero = () => {
   const { scrollYProgress } = useScroll();
@@ -25,15 +25,15 @@ const OrbitaHero = () => {
       {/* Atmospheric glows */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-20"
-          style={{ background: "radial-gradient(ellipse, hsl(186 100% 50% / 0.12), transparent 70%)" }} />
+          style={{ background: "radial-gradient(ellipse, hsl(0 85% 55% / 0.15), transparent 70%)" }} />
         <div className="absolute bottom-0 right-0 w-[800px] h-[800px] opacity-15"
-          style={{ background: "radial-gradient(circle, hsl(270 100% 57% / 0.1), transparent 70%)" }} />
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] opacity-10"
           style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.08), transparent 70%)" }} />
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] opacity-10"
+          style={{ background: "radial-gradient(circle, hsl(30 100% 55% / 0.08), transparent 70%)" }} />
         {/* Grid */}
         <div className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: "linear-gradient(hsl(186 100% 50%) 1px, transparent 1px), linear-gradient(90deg, hsl(186 100% 50%) 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(hsl(0 85% 55%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 85% 55%) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
           }} />
       </div>
@@ -42,19 +42,20 @@ const OrbitaHero = () => {
         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-4xl mx-auto">
           {/* Badge */}
           <motion.div variants={childVariants} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel mb-10">
-            <Sparkles className="w-4 h-4 text-primary animate-pulse-glow" />
-            <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">Next-Gen Commerce</span>
+            <Zap className="w-4 h-4 text-primary animate-pulse-glow" />
+            <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">AI-Powered Fitness Metaverse</span>
           </motion.div>
 
           <motion.h1 variants={childVariants} className="heading-display mb-4">
             Welcome to
           </motion.h1>
           <motion.h1 variants={childVariants} className="heading-display mb-8">
-            <span className="text-gradient-cyan-purple">ORBITA</span>
+            <span className="text-gradient-fire">FITVERSE</span>{" "}
+            <span className="text-foreground">PRO</span>
           </motion.h1>
 
           <motion.p variants={childVariants} className="body-large max-w-2xl mx-auto mb-12">
-            The future of digital commerce. Explore premium tech products in an immersive 3D shopping universe powered by cutting-edge AI.
+            The future of human optimization. AI-driven training, precision nutrition, and immersive biometric tracking — all in one digital sanctuary.
           </motion.p>
 
           {/* CTA */}
@@ -63,30 +64,30 @@ const OrbitaHero = () => {
               href="#products"
               className="group relative px-10 py-5 rounded-full text-base font-semibold tracking-wide inline-flex items-center gap-3 overflow-hidden transition-all duration-500"
               style={{
-                background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))",
-                boxShadow: "0 0 40px -5px hsl(186 100% 50% / 0.4)",
+                background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))",
+                boxShadow: "0 0 40px -5px hsl(0 85% 55% / 0.4)",
               }}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer" style={{ backgroundSize: "200% 100%" }} />
-              <Sparkles className="w-5 h-5 text-primary-foreground relative z-10" />
-              <span className="text-primary-foreground relative z-10">Explore Store</span>
+              <Zap className="w-5 h-5 text-primary-foreground relative z-10" />
+              <span className="text-primary-foreground relative z-10">Start Training</span>
             </a>
 
-            <a href="#products" className="group px-10 py-5 rounded-full text-base font-semibold tracking-wide glass-panel-hover inline-flex items-center gap-3 text-foreground">
-              <ShoppingBag className="w-5 h-5" />
-              Start Shopping
+            <a href="#features" className="group px-10 py-5 rounded-full text-base font-semibold tracking-wide glass-panel-hover inline-flex items-center gap-3 text-foreground">
+              <Dumbbell className="w-5 h-5" />
+              Explore Gear
             </a>
           </motion.div>
 
           {/* Stats */}
           <motion.div variants={childVariants} className="flex gap-12 mt-16 justify-center flex-wrap">
             {[
-              { value: "10K+", label: "Products" },
-              { value: "150+", label: "Brands" },
-              { value: "99.9%", label: "Uptime" },
+              { value: "50K+", label: "Athletes" },
+              { value: "1M+", label: "Workouts" },
+              { value: "98%", label: "Goal Hit Rate" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-gradient-cyan-purple">{stat.value}</p>
+                <p className="text-3xl md:text-4xl font-bold text-gradient-fire">{stat.value}</p>
                 <p className="text-xs text-muted-foreground font-mono tracking-widest mt-2 uppercase">{stat.label}</p>
               </div>
             ))}
