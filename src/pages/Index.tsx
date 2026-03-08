@@ -1,30 +1,24 @@
-import BloodstreamScene from "@/components/BloodstreamScene";
-import HemoScrollProgress from "@/components/HemoScrollProgress";
-import HemoNavbar from "@/components/HemoNavbar";
-import HemoHero from "@/components/HemoHero";
-import Mission from "@/components/Mission";
-import FindDonor from "@/components/FindDonor";
-import BecomeDonor from "@/components/BecomeDonor";
-import EmergencyRequests from "@/components/EmergencyRequests";
-import ImpactStats from "@/components/ImpactStats";
-import CommunityHeroes from "@/components/CommunityHeroes";
-import HemoFooter from "@/components/HemoFooter";
+import SpaceScene from "@/components/SpaceScene";
+import OrbitaScrollProgress from "@/components/OrbitaScrollProgress";
+import OrbitaNavbar from "@/components/OrbitaNavbar";
+import OrbitaHero from "@/components/OrbitaHero";
+import ProductGrid from "@/components/ProductGrid";
+import AboutSection from "@/components/AboutSection";
+import OrbitaFooter from "@/components/OrbitaFooter";
+import CartSidebar from "@/components/CartSidebar";
 
 const Index = () => (
   <div className="relative min-h-screen">
-    <BloodstreamScene />
-    <HemoScrollProgress />
-    <HemoNavbar />
+    <SpaceScene />
+    <OrbitaScrollProgress />
+    <OrbitaNavbar />
+    <CartSidebar />
     <main className="relative z-10">
-      <HemoHero />
-      <Mission />
-      <FindDonor />
-      <BecomeDonor />
-      <EmergencyRequests />
-      <ImpactStats />
-      <CommunityHeroes />
+      <OrbitaHero />
+      <ProductGrid />
+      <AboutSection />
     </main>
-    <HemoFooter />
+    <OrbitaFooter />
   </div>
 );
 
