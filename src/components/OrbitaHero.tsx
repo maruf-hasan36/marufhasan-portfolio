@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Zap, Dumbbell } from "lucide-react";
+import heroFitness from "@/assets/hero-fitness.jpg";
 
 const OrbitaHero = () => {
   const { scrollYProgress } = useScroll();
