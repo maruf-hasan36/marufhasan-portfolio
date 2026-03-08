@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useCart } from "@/lib/cart-context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowLeft, CreditCard, CheckCircle, Loader2, Lock } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -23,7 +23,6 @@ type CheckoutData = z.infer<typeof schema>;
 
 const CheckoutPage = () => {
   const { items, total, clearCart } = useCart();
-  const navigate = useNavigate();
   const [state, setState] = useState<"form" | "loading" | "success">("form");
   const { register, handleSubmit, formState: { errors } } = useForm<CheckoutData>({ resolver: zodResolver(schema) });
 
@@ -43,7 +42,7 @@ const CheckoutPage = () => {
         <CartSidebar />
         <div className="text-center">
           <p className="text-muted-foreground mb-4">Your cart is empty</p>
-          <Link to="/" className="text-primary hover:text-primary/80">Back to Store</Link>
+          <Link to="/" className="text-primary hover:text-primary/80">Back to FITVERSE</Link>
         </div>
       </div>
     );
@@ -56,7 +55,7 @@ const CheckoutPage = () => {
 
       <div className="relative z-10 section-container pt-28 pb-20">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8">
-          <ArrowLeft className="w-4 h-4" /> Back to Store
+          <ArrowLeft className="w-4 h-4" /> Back to FITVERSE
         </Link>
 
         {state === "success" ? (
@@ -67,15 +66,14 @@ const CheckoutPage = () => {
           >
             <CheckCircle className="w-20 h-20 text-green-400 mx-auto mb-6" />
             <h1 className="text-3xl font-bold text-foreground mb-3">Order Confirmed!</h1>
-            <p className="text-muted-foreground mb-8">Your order has been placed successfully. Thank you for shopping with ORBITA.</p>
+            <p className="text-muted-foreground mb-8">Your gear is on its way. Train hard, recover smart.</p>
             <Link to="/" className="inline-flex px-8 py-3 rounded-xl font-semibold text-primary-foreground"
-              style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))" }}>
+              style={{ background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))" }}>
               Continue Shopping
             </Link>
           </motion.div>
         ) : (
           <div className="grid lg:grid-cols-[1fr_380px] gap-8">
-            {/* Form */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -140,14 +138,13 @@ const CheckoutPage = () => {
                   type="submit"
                   disabled={state === "loading"}
                   className="w-full py-4 rounded-xl font-semibold text-primary-foreground flex items-center justify-center gap-2"
-                  style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))" }}
+                  style={{ background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))" }}
                 >
                   {state === "loading" ? <Loader2 className="w-5 h-5 animate-spin" /> : `Pay $${total.toFixed(2)}`}
                 </button>
               </form>
             </motion.div>
 
-            {/* Order summary */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -175,7 +172,7 @@ const CheckoutPage = () => {
                   <span>Shipping</span><span className="text-green-400">Free</span>
                 </div>
                 <div className="flex justify-between text-lg font-bold text-foreground pt-2 border-t border-border/30">
-                  <span>Total</span><span className="text-gradient-cyan-purple">${total.toFixed(2)}</span>
+                  <span>Total</span><span className="text-gradient-fire">${total.toFixed(2)}</span>
                 </div>
               </div>
             </motion.div>

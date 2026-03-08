@@ -59,8 +59,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        "electric-cyan": "hsl(var(--electric-cyan))",
-        "neon-purple": "hsl(var(--neon-purple))",
+        "signal-red": "hsl(var(--signal-red))",
+        "quantum-cyan": "hsl(var(--quantum-cyan))",
+        "solar-orange": "hsl(var(--solar-orange))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -92,6 +93,13 @@ export default {
           "0%": { transform: "rotate(0deg) translateX(120px) rotate(0deg)" },
           "100%": { transform: "rotate(360deg) translateX(120px) rotate(-360deg)" },
         },
+        "heartbeat": {
+          "0%, 100%": { transform: "scale(1)" },
+          "14%": { transform: "scale(1.15)" },
+          "28%": { transform: "scale(1)" },
+          "42%": { transform: "scale(1.1)" },
+          "70%": { transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -100,6 +108,7 @@ export default {
         float: "float 6s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         orbit: "orbit 20s linear infinite",
+        heartbeat: "heartbeat 1.5s ease-in-out infinite",
       },
     },
   },

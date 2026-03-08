@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart, Menu, X, User, LogOut } from "lucide-react";
+import { ShoppingCart, Menu, X, User, LogOut, Dumbbell } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { useAuth } from "@/lib/auth-context";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const OrbitaNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { itemCount, setIsOpen } = useCart();
   const { user, logout, isAuthenticated } = useAuth();
-  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -19,7 +18,8 @@ const OrbitaNavbar = () => {
   }, []);
 
   const navLinks = [
-    { label: "Store", href: "/#products" },
+    { label: "Gear", href: "/#products" },
+    { label: "Features", href: "/#features" },
     { label: "About", href: "/#about" },
   ];
 
@@ -36,11 +36,11 @@ const OrbitaNavbar = () => {
         <div className="section-container flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded-full flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))" }}>
-              <span className="text-xs font-bold text-background">O</span>
+              style={{ background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))" }}>
+              <Dumbbell className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold tracking-wider text-foreground">
-              ORBI<span className="text-gradient-cyan-purple">TA</span>
+              FIT<span className="text-gradient-fire">VERSE</span>
             </span>
           </Link>
 
@@ -79,7 +79,7 @@ const OrbitaNavbar = () => {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   className="absolute -top-1 -right-1 w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center text-primary-foreground"
-                  style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))" }}
+                  style={{ background: "linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 55%))" }}
                 >
                   {itemCount}
                 </motion.span>
