@@ -91,18 +91,22 @@ const Contact = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="space-y-6"
           >
-            {info.map(({ icon: Icon, label, value }) => (
-              <div key={label} className="glass-panel rounded-xl p-5 flex items-center gap-4 group hover:border-glow-cyan/20 transition-colors duration-300">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center"
-                  style={{ background: "hsl(186 100% 50% / 0.1)", border: "1px solid hsl(186 100% 50% / 0.2)" }}>
-                  <Icon className="w-4 h-4 text-glow-cyan" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground font-mono">{label}</p>
-                  <p className="text-sm font-medium">{value}</p>
-                </div>
-              </div>
-            ))}
+            {info.map(({ icon: Icon, label, value, href }) => {
+              const Wrapper: any = href ? "a" : "div";
+              const wrapperProps = href ? { href, target: href.startsWith("http") ? "_blank" : undefined, rel: "noopener noreferrer" } : {};
+              return (
+                <Wrapper key={label} {...wrapperProps} className="glass-panel rounded-xl p-5 flex items-center gap-4 group hover:border-glow-cyan/20 transition-colors duration-300 block">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                    style={{ background: "hsl(186 100% 50% / 0.1)", border: "1px solid hsl(186 100% 50% / 0.2)" }}>
+                    <Icon className="w-4 h-4 text-glow-cyan" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs text-muted-foreground font-mono">{label}</p>
+                    <p className="text-sm font-medium truncate">{value}</p>
+                  </div>
+                </Wrapper>
+              );
+            })}
 
             {/* Decorative */}
             <div className="glass-panel rounded-xl p-5 relative overflow-hidden">
