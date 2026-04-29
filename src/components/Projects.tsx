@@ -1,20 +1,20 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
-import projectNeuralChat from "@/assets/project-neuralchat.jpg";
+import projectAiHub from "@/assets/project-aihub.png";
 import projectCloudForge from "@/assets/project-cloudforge.jpg";
 import projectDataLens from "@/assets/project-datalens.jpg";
 
 const projects = [
   {
-    title: "MERN Web App",
-    desc: "Full-stack web application built with the MERN stack — MongoDB, Express.js, React, and Node.js. Includes REST APIs, JWT authentication, and a responsive UI.",
-    tech: ["MongoDB", "Express.js", "React", "Node.js"],
+    title: "AI Hub — All-in-One AI Store",
+    desc: "Start exploring AI smarter, faster, and easier with AI Store. A unified subscription platform giving access to the most advanced frontier AI models under one powerful interface.",
+    tech: ["React", "Tailwind CSS", "Modern UI Components"],
     color: "186 100% 50%",
     github: "https://github.com/maruf-hasan36",
     live: "#",
-    image: projectNeuralChat,
-    year: "MERN",
+    image: projectAiHub,
+    year: "AI",
   },
   {
     title: "Next.js Full-Stack App",
