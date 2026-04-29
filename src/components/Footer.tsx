@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Heart } from "lucide-react";
+import { Github, Linkedin, Facebook, MessageCircle, Mail, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 
 const links = [
