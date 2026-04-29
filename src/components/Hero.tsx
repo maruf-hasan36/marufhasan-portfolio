@@ -5,10 +5,10 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 import marufPhoto from "@/assets/maruf-photo.png";
 
 const roles = [
-  "Full Stack JavaScript Engineer",
-  "React & Next.js Specialist",
-  "AI-Powered Product Builder",
-  "Cloud Architecture Expert",
+  "MERN Stack Developer",
+  "React.js & Next.js Developer",
+  "Node.js & Express.js Developer",
+  "MongoDB Database Specialist",
 ];
 
 const Hero = () => {
@@ -102,7 +102,7 @@ const Hero = () => {
             </motion.div>
 
             <motion.p variants={childVariants} className="body-large max-w-xl mb-10">
-              I build intelligent and scalable web products that push the boundaries of what's possible on the modern web.
+              I build modern, scalable, and user-friendly web applications using MongoDB, Express.js, React, and Node.js — turning ideas into real-world digital solutions through clean and efficient code.
             </motion.p>
 
             <motion.div variants={childVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
@@ -117,9 +117,9 @@ const Hero = () => {
             {/* Quick stats */}
             <motion.div variants={childVariants} className="flex gap-8 mt-12 justify-center lg:justify-start">
               {[
-                { value: "5+", label: "Years Exp." },
-                { value: "30+", label: "Projects" },
-                { value: "15+", label: "Clients" },
+                { value: "MERN", label: "Stack" },
+                { value: "Next.js", label: "Full-Stack" },
+                { value: "REST", label: "APIs" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <p className="text-2xl md:text-3xl font-bold text-gradient-cyan-violet">{stat.value}</p>
