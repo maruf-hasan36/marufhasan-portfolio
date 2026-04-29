@@ -23,7 +23,7 @@ const Index = () => (
       <Skills />
       <Projects />
       <Timeline />
-      <GitHubStats />
+      
       <Contact />
     </main>
     <Footer />
