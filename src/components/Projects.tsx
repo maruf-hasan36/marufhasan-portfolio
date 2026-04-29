@@ -17,13 +17,13 @@ const projects = [
     year: "AI",
   },
   {
-    title: "Next.js Full-Stack App",
-    desc: "SEO-friendly, full-stack application built with Next.js. Server-side rendering, API routes, and a fast, modern user experience.",
-    tech: ["Next.js", "React", "Tailwind CSS", "MongoDB"],
+    title: "Book Vibe — Online Book Library",
+    desc: "An SEO-friendly online book library built with Next.js and JavaScript. Browse listed books, track pages read, and manage a personal reading list with fast server-side rendering and a clean, responsive UI.",
+    tech: ["Next.js", "JavaScript", "Tailwind CSS", "SEO"],
     color: "270 100% 57%",
-    github: "https://github.com/maruf-hasan36",
+    github: "https://github.com/maruf-hasan36/Book-Vive",
     live: "#",
-    image: projectCloudForge,
+    image: projectBookVibe,
     year: "Next.js",
   },
   {
