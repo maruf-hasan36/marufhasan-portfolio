@@ -41,13 +41,18 @@ const Footer = () => (
           <p className="text-sm font-medium mb-4">Connect</p>
           <div className="flex items-center gap-3">
             {[
-              { icon: Github, href: "#" },
-              { icon: Linkedin, href: "#" },
-              { icon: Twitter, href: "#" },
-            ].map(({ icon: Icon, href }, i) => (
+              { icon: Github, href: "https://github.com/maruf-hasan36", label: "GitHub" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/maruf-hasan-mh", label: "LinkedIn" },
+              { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+              { icon: MessageCircle, href: "https://wa.me/8801935921844", label: "WhatsApp" },
+              { icon: Mail, href: "mailto:marufhasanbr@gmail.com", label: "Email" },
+            ].map(({ icon: Icon, href, label }, i) => (
               <motion.a
                 key={i}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="w-10 h-10 rounded-lg flex items-center justify-center glass-panel text-muted-foreground hover:text-foreground hover:border-glow-cyan/20 transition-colors duration-300"
               >
