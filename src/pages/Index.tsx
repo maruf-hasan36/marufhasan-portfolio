@@ -1,26 +1,32 @@
-import SpaceScene from "@/components/SpaceScene";
-import OrbitaScrollProgress from "@/components/OrbitaScrollProgress";
-import OrbitaNavbar from "@/components/OrbitaNavbar";
-import OrbitaHero from "@/components/OrbitaHero";
-import ProductGrid from "@/components/ProductGrid";
-import FitnessFeatures from "@/components/FitnessFeatures";
-import AboutSection from "@/components/AboutSection";
-import OrbitaFooter from "@/components/OrbitaFooter";
-import CartSidebar from "@/components/CartSidebar";
+import ParticleCanvas from "@/components/ParticleCanvas";
+import ScrollProgress from "@/components/ScrollProgress";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
+import Timeline from "@/components/Timeline";
+import GitHubStats from "@/components/GitHubStats";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import CursorFollower from "@/components/CursorFollower";
 
 const Index = () => (
   <div className="relative min-h-screen">
-    <SpaceScene />
-    <OrbitaScrollProgress />
-    <OrbitaNavbar />
-    <CartSidebar />
+    <ParticleCanvas />
+    <ScrollProgress />
+    <CursorFollower />
+    <Navbar />
     <main className="relative z-10">
-      <OrbitaHero />
-      <ProductGrid />
-      <FitnessFeatures />
-      <AboutSection />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Timeline />
+      <GitHubStats />
+      <Contact />
     </main>
-    <OrbitaFooter />
+    <Footer />
   </div>
 );
 
