@@ -88,18 +88,48 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
 
         {/* Hover overlay with links */}
         <motion.div
-          className="absolute inset-0 flex items-center justify-center gap-4"
-          initial={{ opacity: 0 }}
+          className="absolute inset-0 flex items-center justify-center gap-3"
+          initial={false}
           animate={hovered ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          style={{ background: "hsl(240 20% 4% / 0.6)", backdropFilter: "blur(4px)" }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          style={{ background: "hsl(240 20% 4% / 0.55)", backdropFilter: "blur(6px)" }}
         >
-          <a href={project.github} className="p-3 rounded-full glass-panel hover:bg-muted/80 transition-colors">
-            <Github className="w-5 h-5" />
-          </a>
-          <a href={project.live} className="p-3 rounded-full glass-panel hover:bg-muted/80 transition-colors">
-            <ExternalLink className="w-5 h-5" />
-          </a>
+          <motion.a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ y: 14, opacity: 0 }}
+            animate={hovered ? { y: 0, opacity: 1 } : { y: 14, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 260, damping: 22, delay: hovered ? 0.05 : 0 }}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.96 }}
+            className="group/btn relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full glass-panel border border-border/60 text-sm font-medium overflow-hidden transition-colors duration-300 hover:border-foreground/30"
+          >
+            <Github className="w-4 h-4 transition-transform duration-300 group-hover/btn:rotate-[-8deg]" />
+            <span>View Code</span>
+            <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+          </motion.a>
+
+          <motion.a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ y: 14, opacity: 0 }}
+            animate={hovered ? { y: 0, opacity: 1 } : { y: 14, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 260, damping: 22, delay: hovered ? 0.12 : 0 }}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.96 }}
+            className="group/btn relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold overflow-hidden transition-all duration-300"
+            style={{
+              background: `linear-gradient(135deg, hsl(${project.color} / 0.95), hsl(${project.color} / 0.7))`,
+              color: "hsl(240 20% 4%)",
+              boxShadow: `0 8px 24px -8px hsl(${project.color} / 0.6), 0 0 0 1px hsl(${project.color} / 0.4) inset`,
+            }}
+          >
+            <span>View Project</span>
+            <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+            <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+          </motion.a>
         </motion.div>
       </div>
 
