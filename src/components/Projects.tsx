@@ -2,7 +2,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import projectAiHub from "@/assets/project-aihub.png";
-import projectCloudForge from "@/assets/project-cloudforge.jpg";
+import projectBookVibe from "@/assets/project-bookvibe.png";
 import projectDataLens from "@/assets/project-datalens.jpg";
 
 const projects = [
