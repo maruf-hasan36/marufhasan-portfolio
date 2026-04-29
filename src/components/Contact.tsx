@@ -3,7 +3,7 @@ import { useRef, useState, forwardRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, Check, Loader2, Mail, MapPin, Clock } from "lucide-react";
+import { Send, Check, Loader2, Mail, MapPin, MessageCircle, Linkedin, Github, Facebook } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -56,9 +56,12 @@ const Contact = () => {
   };
 
   const info = [
-    { icon: Mail, label: "Email", value: "hello@marufhasan.dev" },
-    { icon: MapPin, label: "Location", value: "Available Worldwide" },
-    { icon: Clock, label: "Timezone", value: "UTC+6 (Flexible)" },
+    { icon: Mail, label: "Email", value: "marufhasanbr@gmail.com", href: "mailto:marufhasanbr@gmail.com" },
+    { icon: MessageCircle, label: "WhatsApp", value: "+880 1935 921844", href: "https://wa.me/8801935921844" },
+    { icon: Linkedin, label: "LinkedIn", value: "maruf-hasan-mh", href: "https://www.linkedin.com/in/maruf-hasan-mh" },
+    { icon: Github, label: "GitHub", value: "maruf-hasan36", href: "https://github.com/maruf-hasan36" },
+    { icon: Facebook, label: "Facebook", value: "Maruf Hasan", href: "https://facebook.com" },
+    { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh" },
   ];
 
   return (
@@ -88,18 +91,22 @@ const Contact = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="space-y-6"
           >
-            {info.map(({ icon: Icon, label, value }) => (
-              <div key={label} className="glass-panel rounded-xl p-5 flex items-center gap-4 group hover:border-glow-cyan/20 transition-colors duration-300">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center"
-                  style={{ background: "hsl(186 100% 50% / 0.1)", border: "1px solid hsl(186 100% 50% / 0.2)" }}>
-                  <Icon className="w-4 h-4 text-glow-cyan" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground font-mono">{label}</p>
-                  <p className="text-sm font-medium">{value}</p>
-                </div>
-              </div>
-            ))}
+            {info.map(({ icon: Icon, label, value, href }) => {
+              const Wrapper: any = href ? "a" : "div";
+              const wrapperProps = href ? { href, target: href.startsWith("http") ? "_blank" : undefined, rel: "noopener noreferrer" } : {};
+              return (
+                <Wrapper key={label} {...wrapperProps} className="glass-panel rounded-xl p-5 flex items-center gap-4 group hover:border-glow-cyan/20 transition-colors duration-300 block">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                    style={{ background: "hsl(186 100% 50% / 0.1)", border: "1px solid hsl(186 100% 50% / 0.2)" }}>
+                    <Icon className="w-4 h-4 text-glow-cyan" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs text-muted-foreground font-mono">{label}</p>
+                    <p className="text-sm font-medium truncate">{value}</p>
+                  </div>
+                </Wrapper>
+              );
+            })}
 
             {/* Decorative */}
             <div className="glass-panel rounded-xl p-5 relative overflow-hidden">
