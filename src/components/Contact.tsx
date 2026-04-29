@@ -56,9 +56,12 @@ const Contact = () => {
   };
 
   const info = [
-    { icon: Mail, label: "Email", value: "hello@marufhasan.dev" },
-    { icon: MapPin, label: "Location", value: "Available Worldwide" },
-    { icon: Clock, label: "Timezone", value: "UTC+6 (Flexible)" },
+    { icon: Mail, label: "Email", value: "marufhasanbr@gmail.com", href: "mailto:marufhasanbr@gmail.com" },
+    { icon: MessageCircle, label: "WhatsApp", value: "+880 1935 921844", href: "https://wa.me/8801935921844" },
+    { icon: Linkedin, label: "LinkedIn", value: "maruf-hasan-mh", href: "https://www.linkedin.com/in/maruf-hasan-mh" },
+    { icon: Github, label: "GitHub", value: "maruf-hasan36", href: "https://github.com/maruf-hasan36" },
+    { icon: Facebook, label: "Facebook", value: "Maruf Hasan", href: "https://facebook.com" },
+    { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh" },
   ];
 
   return (
