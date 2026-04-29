@@ -3,11 +3,11 @@ import { Code, Server, Blocks, Layers, Cpu } from "lucide-react";
 import { useState } from "react";
 
 const milestones = [
-  { year: "2018", title: "Learned JavaScript", desc: "Dove into the fundamentals—DOM manipulation, ES6, async patterns. Fell in love with the language that runs the web.", icon: Code, color: "186 100% 50%" },
-  { year: "2019", title: "First REST API", desc: "Built and deployed my first Node.js + Express API with MongoDB. The thrill of seeing data flow end-to-end.", icon: Server, color: "200 80% 55%" },
-  { year: "2020", title: "Mastered React", desc: "Hooks, context, state management—built production SPAs that served thousands of users daily.", icon: Blocks, color: "230 70% 60%" },
-  { year: "2022", title: "Full-Stack Engineer", desc: "Next.js, PostgreSQL, cloud deployment. Took end-to-end ownership of products from concept to production.", icon: Layers, color: "260 80% 60%" },
-  { year: "2024", title: "AI & Beyond", desc: "LLM integrations, WebAssembly experiments, pushing the boundaries of what's possible on the web.", icon: Cpu, color: "270 100% 57%" },
+  { year: "01", title: "Learned JavaScript", desc: "Started with HTML, CSS and JavaScript fundamentals — ES6+, DOM, and async patterns.", icon: Code, color: "186 100% 50%" },
+  { year: "02", title: "Mastered React.js", desc: "Built modern, component-based UIs with React — hooks, state, and reusable components.", icon: Blocks, color: "200 80% 55%" },
+  { year: "03", title: "Backend with Node & Express", desc: "Developed server-side logic and REST APIs using Node.js and Express.js.", icon: Server, color: "230 70% 60%" },
+  { year: "04", title: "MongoDB & Full-Stack MERN", desc: "Connected MongoDB with Mongoose and shipped end-to-end MERN stack applications.", icon: Layers, color: "260 80% 60%" },
+  { year: "05", title: "Next.js & Authentication", desc: "Built SEO-friendly, full-stack apps with Next.js, JWT and Better Auth integrations.", icon: Cpu, color: "270 100% 57%" },
 ];
 
 const Timeline = () => {
@@ -32,9 +32,9 @@ const Timeline = () => {
         >
           <p className="font-mono text-sm tracking-[0.2em] uppercase text-glow-cyan mb-4">Journey</p>
           <h2 className="heading-section mb-4">
-            The path <span className="text-gradient-cyan-violet">so far</span>
+            My MERN <span className="text-gradient-cyan-violet">learning path</span>
           </h2>
-          <p className="body-large max-w-lg mx-auto">Key milestones that shaped my career as an engineer.</p>
+          <p className="body-large max-w-lg mx-auto">The steps that shaped me as a MERN stack developer.</p>
         </motion.div>
 
         <div className="relative max-w-3xl mx-auto">

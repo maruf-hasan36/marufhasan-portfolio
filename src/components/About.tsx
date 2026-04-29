@@ -3,9 +3,9 @@ import { useRef, useState, useEffect } from "react";
 import marufPhoto from "@/assets/maruf-photo.png";
 
 const stats = [
-  { value: 50, suffix: "+", label: "Open Source Contributions" },
-  { value: 30, suffix: "+", label: "Projects Delivered" },
-  { value: 99, suffix: "%", label: "Client Satisfaction" },
+  { value: 4, suffix: "", label: "MERN Technologies" },
+  { value: 100, suffix: "%", label: "Responsive UIs" },
+  { value: 100, suffix: "%", label: "Clean Code Focus" },
 ];
 
 const AnimatedCounter = ({ value, suffix, inView }: { value: number; suffix: string; inView: boolean }) => {
@@ -115,19 +115,23 @@ const About = () => {
           >
             <p className="font-mono text-sm tracking-[0.2em] uppercase text-glow-cyan mb-4">About</p>
             <h2 className="heading-section mb-6">
-              Building the future,<br />
-              <span className="text-gradient-cyan-violet">one line at a time.</span>
+              Passionate <span className="text-gradient-cyan-violet">MERN Stack Developer</span>
             </h2>
             <div className="space-y-4 body-large">
               <p>
-                I'm a full-stack JavaScript engineer with a deep passion for creating
-                performant, beautiful, and intelligent web applications. My expertise
-                spans from crafting pixel-perfect UIs to designing robust backend architectures.
+                I am a passionate MERN Stack Developer with a strong focus on building
+                modern, scalable, and user-friendly web applications. I enjoy turning
+                ideas into real-world digital solutions through clean and efficient code.
               </p>
               <p>
-                I specialize in React, Next.js, Node.js, and modern cloud infrastructure.
-                Currently exploring the intersection of AI and web development to build
-                the next generation of digital experiences.
+                I have solid experience working with MongoDB, Express.js, React, and
+                Node.js, and I am also highly comfortable with Next.js for building
+                fast, SEO-friendly, and full-stack applications.
+              </p>
+              <p>
+                My goal is to continuously improve my skills and become a professional
+                full-stack developer, contributing to impactful projects and delivering
+                high-quality solutions.
               </p>
             </div>
 
