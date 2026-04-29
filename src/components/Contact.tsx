@@ -3,7 +3,7 @@ import { useRef, useState, forwardRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, Check, Loader2, Mail, MapPin, Clock } from "lucide-react";
+import { Send, Check, Loader2, Mail, MapPin, MessageCircle, Linkedin, Github, Facebook } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
