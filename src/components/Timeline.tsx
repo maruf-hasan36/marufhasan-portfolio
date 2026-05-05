@@ -103,16 +103,30 @@ const Timeline = () => {
 
                   {/* Center dot */}
                   <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
+                    {/* Pulsing halo */}
+                    <motion.span
+                      className="absolute inset-0 rounded-full pointer-events-none"
+                      style={{ background: `hsl(${m.color} / 0.35)` }}
+                      animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut", delay: i * 0.3 }}
+                    />
                     <motion.div
-                      className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+                      className="relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
                       style={{
                         background: isExpanded ? `hsl(${m.color} / 0.25)` : `hsl(${m.color} / 0.1)`,
                         border: `1px solid hsl(${m.color} / ${isExpanded ? 0.6 : 0.2})`,
                         boxShadow: isExpanded ? `0 0 20px hsl(${m.color} / 0.3)` : "none",
                       }}
-                      whileHover={{ scale: 1.1 }}
+                      whileHover={{ scale: 1.15, rotate: 8 }}
+                      animate={{ y: [0, -3, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
                     >
-                      <Icon className="w-5 h-5" style={{ color: `hsl(${m.color})` }} />
+                      <motion.div
+                        animate={{ rotate: isExpanded ? 360 : 0 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        <Icon className="w-5 h-5" style={{ color: `hsl(${m.color})` }} />
+                      </motion.div>
                     </motion.div>
                   </div>
 

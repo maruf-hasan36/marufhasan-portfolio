@@ -20,7 +20,7 @@ const projects = [
     title: "Book Vibe — Online Book Library",
     desc: "An SEO-friendly online book library built with Next.js and JavaScript. Browse listed books, track pages read, and manage a personal reading list with fast server-side rendering and a clean, responsive UI.",
     tech: ["Next.js", "JavaScript", "Tailwind CSS", "SEO"],
-    color: "270 100% 57%",
+    color: "0 0% 100%",
     github: "https://github.com/maruf-hasan36/Book-Vive",
     live: "#",
     image: projectBookVibe,

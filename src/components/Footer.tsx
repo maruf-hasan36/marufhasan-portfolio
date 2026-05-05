@@ -1,4 +1,4 @@
-import { Github, Linkedin, Facebook, MessageCircle, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Facebook, MessageCircle, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 const links = [
@@ -63,12 +63,9 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="border-t border-border/50 pt-8 flex items-center justify-center gap-4">
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Maruf Hasan. All rights reserved.
-        </p>
-        <p className="text-xs text-muted-foreground flex items-center gap-1">
-          Crafted with <Heart className="w-3 h-3 text-glow-cyan" /> and precision
         </p>
       </div>
     </div>
