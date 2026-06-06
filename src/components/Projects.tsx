@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import projectAiHub from "@/assets/project-aihub.png";
 import projectBookVibe from "@/assets/project-bookvibe.png";
-import projectDataLens from "@/assets/project-datalens.jpg";
+import projectIdeaVault from "@/assets/project-ideavault.png";
 
 const projects = [
   {
