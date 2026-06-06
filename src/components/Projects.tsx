@@ -2,7 +2,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import projectAiHub from "@/assets/project-aihub.png";
-import projectBookVibe from "@/assets/project-bookvibe.png";
+import projectGoodReads from "@/assets/project-goodreads.png.asset.json";
 import projectIdeaVault from "@/assets/project-ideavault.png";
 
 const projects = [
@@ -17,14 +17,14 @@ const projects = [
     year: "AI",
   },
   {
-    title: "Book Vibe — Online Book Library",
-    desc: "An SEO-friendly online book library built with Next.js and JavaScript. Browse listed books, track pages read, and manage a personal reading list with fast server-side rendering and a clean, responsive UI.",
-    tech: ["Next.js", "JavaScript", "Tailwind CSS", "SEO"],
-    color: "0 0% 100%",
-    github: "https://github.com/maruf-hasan36/Book-Vive",
-    live: "#",
-    image: projectBookVibe,
-    year: "Next.js",
+    title: "GoodReads — Book Community Platform",
+    desc: "A responsive book management platform to discover books, share reviews, and manage user profiles. Features email/password and Google OAuth authentication, category filtering with search, an interactive review system, and protected routes with smooth responsive animations.",
+    tech: ["React", "Firebase Auth", "Tailwind CSS", "OAuth"],
+    color: "270 100% 70%",
+    github: "https://github.com/maruf-hasan36/B13-A8",
+    live: "https://b13-a8-nu.vercel.app/",
+    image: projectGoodReads.url,
+    year: "Full-Stack",
   },
   {
     title: "IdeaVault — Creative Platform",
