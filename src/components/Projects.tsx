@@ -27,14 +27,14 @@ const projects = [
     year: "Next.js",
   },
   {
-    title: "REST API Service",
-    desc: "Robust REST API service built with Node.js and Express.js. Includes JWT/Better Auth authentication, user management, and clean modular architecture.",
-    tech: ["Node.js", "Express.js", "MongoDB", "JWT"],
-    color: "220 80% 60%",
+    title: "IdeaVault — Creative Platform",
+    desc: "A MERN stack idea validation and collaboration platform to explore, submit, and manage startup ideas. Features secure JWT auth with protected routes, full CRUD via Express REST API with MongoDB, and a responsive Next.js frontend with real-time data.",
+    tech: ["Next.js", "Express.js", "MongoDB", "JWT"],
+    color: "270 100% 70%",
     github: "https://github.com/maruf-hasan36",
-    live: "#",
-    image: projectDataLens,
-    year: "API",
+    live: "https://assignmet-9-client.vercel.app/",
+    image: projectIdeaVault,
+    year: "MERN",
   },
 ];
 
