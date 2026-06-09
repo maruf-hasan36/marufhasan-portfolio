@@ -23,7 +23,7 @@ const projects = [
     color: "270 100% 70%",
     github: "https://github.com/maruf-hasan36/B13-A8",
     live: "https://b13-a8-nu.vercel.app/",
-    image: projectGoodReads.url,
+    image: projectGoodReads,
     year: "Full-Stack",
   },
   {
