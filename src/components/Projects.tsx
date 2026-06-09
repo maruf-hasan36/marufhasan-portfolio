@@ -2,7 +2,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import projectAiHub from "@/assets/project-aihub.png";
-import projectGoodReads from "@/assets/project-goodreads.png.asset.json";
+import projectGoodReads from "@/assets/project-goodreads.png";
 import projectIdeaVault from "@/assets/project-ideavault.png";
 
 const projects = [
@@ -23,7 +23,7 @@ const projects = [
     color: "270 100% 70%",
     github: "https://github.com/maruf-hasan36/B13-A8",
     live: "https://b13-a8-nu.vercel.app/",
-    image: projectGoodReads.url,
+    image: projectGoodReads,
     year: "Full-Stack",
   },
   {
