@@ -12,7 +12,7 @@ const projects = [
     tech: ["React", "Tailwind CSS", "Modern UI Components"],
     color: "186 100% 50%",
     github: "https://github.com/maruf-hasan36/Ai-Store",
-    live: "https://lnkd.in/gryp9sxv",
+    live: "https://dapper-naiad-0cc01a.netlify.app/",
     image: projectAiHub,
     year: "AI",
   },
