@@ -1,29 +1,21 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
+import { MapPin, Download, FileText } from "lucide-react";
 import marufPhoto from "@/assets/maruf-photo.png";
+import resumeAsset from "@/assets/maruf-resume.pdf.asset.json";
 
-const stats = [
-  { value: 4, suffix: "", label: "MERN Technologies" },
-  { value: 100, suffix: "%", label: "Responsive UIs" },
-  { value: 100, suffix: "%", label: "Clean Code Focus" },
+const coreStack = [
+  "MongoDB", "Express.js", "React.js", "Node.js", "Next.js",
+  "JWT", "Better Auth", "shadcn/ui", "Framer Motion", "JavaScript",
+  "HTML5", "CSS3", "Tailwind CSS", "REST API", "Git & GitHub",
 ];
 
-const AnimatedCounter = ({ value, suffix, inView }: { value: number; suffix: string; inView: boolean }) => {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const duration = 2000;
-    const step = duration / value;
-    const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start >= value) clearInterval(timer);
-    }, step);
-    return () => clearInterval(timer);
-  }, [inView, value]);
-  return <span>{count}{suffix}</span>;
-};
+const tools = ["VS Code", "Figma", "Vercel", "Netlify", "Stripe"];
+
+const certifications = [
+  "Complete Web Development Course — Programming Hero",
+  "Diploma in Computer Science & Technology (ongoing)",
+];
 
 const About = () => {
   const ref = useRef(null);
@@ -32,10 +24,8 @@ const About = () => {
   const imgRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useSpring(useTransform(y, [-150, 150], [12, -12]), { stiffness: 200, damping: 20 });
-  const rotateY = useSpring(useTransform(x, [-150, 150], [-12, 12]), { stiffness: 200, damping: 20 });
-  const glowX = useSpring(useTransform(x, [-150, 150], [20, 80]), { stiffness: 200, damping: 20 });
-  const glowY = useSpring(useTransform(y, [-150, 150], [20, 80]), { stiffness: 200, damping: 20 });
+  const rotateX = useSpring(useTransform(y, [-120, 120], [10, -10]), { stiffness: 200, damping: 20 });
+  const rotateY = useSpring(useTransform(x, [-120, 120], [-10, 10]), { stiffness: 200, damping: 20 });
 
   const handleMouse = (e: React.MouseEvent) => {
     const rect = imgRef.current?.getBoundingClientRect();
@@ -47,109 +37,156 @@ const About = () => {
 
   return (
     <section id="about" className="py-32 relative" ref={ref}>
-      {/* Section divider glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
         style={{ background: "linear-gradient(90deg, transparent, hsl(186 100% 50% / 0.3), transparent)" }} />
 
       <div className="section-container">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Photo with 3D tilt */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* ---------- LEFT: About Me card ---------- */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center justify-center order-2 md:order-1"
+            className="glass-panel rounded-3xl p-8 md:p-10 relative overflow-hidden"
           >
-            <motion.div
-              ref={imgRef}
-              onMouseMove={handleMouse}
-              onMouseLeave={handleLeave}
-              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-              className="relative group cursor-default"
-            >
-              <motion.div
-                className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl"
-                style={{
-                  background: useTransform(
-                    [glowX, glowY],
-                    ([gx, gy]) =>
-                      `radial-gradient(circle at ${gx}% ${gy}%, hsl(186 100% 50% / 0.25), hsl(270 100% 57% / 0.15), transparent 70%)`
-                  ),
-                }}
-              />
+            <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
+              style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.12), transparent 70%)" }} />
 
-              {/* Gradient border */}
-              <div className="relative p-[2px] rounded-3xl overflow-hidden"
-                style={{
-                  background: "linear-gradient(135deg, hsl(186 100% 50% / 0.3), hsl(270 100% 57% / 0.3), hsl(186 100% 50% / 0.1))",
-                }}>
-                <div className="rounded-3xl overflow-hidden bg-background" style={{ transform: "translateZ(40px)" }}>
-                  <img
-                    src={marufPhoto}
-                    alt="Maruf Hasan"
-                    className="w-72 h-80 md:w-80 md:h-[28rem] object-cover object-top"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-                  
-                  {/* Floating badge on photo */}
-                  <motion.div
-                    className="absolute bottom-6 left-6 right-6 glass-panel rounded-xl p-4"
-                    style={{ transform: "translateZ(60px)" }}
-                    animate={{ y: [0, -4, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <p className="text-xs font-mono text-glow-cyan tracking-wider">STATUS</p>
-                    <p className="text-sm font-medium text-foreground mt-1">Building the next big thing ✨</p>
-                  </motion.div>
-                </div>
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-10">
+                <div className="w-2 h-2 rounded-full bg-glow-cyan" />
+                <p className="font-mono text-xs tracking-[0.2em] uppercase text-foreground">About Me</p>
+                <div className="flex-1 h-px border-t border-dashed border-border" />
               </div>
-            </motion.div>
+
+              {/* Avatar with 3D tilt + orbit ring */}
+              <div className="flex justify-center mb-10">
+                <motion.div
+                  ref={imgRef}
+                  onMouseMove={handleMouse}
+                  onMouseLeave={handleLeave}
+                  style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+                  className="relative"
+                >
+                  <motion.div
+                    className="absolute -inset-4 rounded-full"
+                    style={{ background: "conic-gradient(from 0deg, hsl(186 100% 50% / 0.5), hsl(270 100% 57% / 0.5), transparent, hsl(186 100% 50% / 0.5))", filter: "blur(14px)" }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+                  />
+                  <div className="relative w-32 h-32 rounded-full p-[2px]"
+                    style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))", transform: "translateZ(30px)" }}>
+                    <img
+                      src={marufPhoto}
+                      alt="Maruf Hasan — MERN Stack Developer"
+                      className="w-full h-full rounded-full object-cover object-top bg-background"
+                    />
+                  </div>
+                </motion.div>
+              </div>
+
+              <div className="space-y-4 text-base leading-relaxed text-[hsl(var(--text-secondary))]">
+                <p>
+                  Hi 👋, I'm a passionate <span className="text-foreground font-medium">MERN Stack Developer</span> focused on
+                  building modern, scalable, and user-friendly web applications.
+                </p>
+                <p>
+                  I work daily with MongoDB, Express.js, React and Node.js, and I'm highly comfortable with
+                  Next.js for fast, SEO-friendly full-stack apps.
+                </p>
+                <p>
+                  I enjoy turning ideas into real-world digital solutions through clean, efficient code — from
+                  REST APIs and authentication systems to polished, responsive interfaces.
+                </p>
+                <p>
+                  My goal is to keep growing into a professional full-stack developer, contributing to impactful
+                  products and delivering high-quality solutions.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 mt-8">
+                <div className="inline-flex items-center gap-2 rounded-full border border-border/70 px-4 py-2.5">
+                  <MapPin className="w-4 h-4 text-glow-cyan" />
+                  <span className="font-mono text-xs text-foreground/90">Dhaka, Bangladesh</span>
+                </div>
+                <motion.a
+                  href={resumeAsset.url}
+                  download="Maruf-Hasan-Resume.pdf"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium bg-primary text-primary-foreground transition-shadow duration-300 hover:shadow-[0_0_40px_-6px_hsl(var(--glow-cyan)/0.6)]"
+                >
+                  <Download className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+                  Download Resume
+                </motion.a>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Text content */}
+          {/* ---------- RIGHT: Skills card ---------- */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="order-1 md:order-2"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="glass-panel rounded-3xl p-8 md:p-10 relative overflow-hidden"
           >
-            <p className="font-mono text-sm tracking-[0.2em] uppercase text-glow-cyan mb-4">About</p>
-            <h2 className="heading-section mb-6">
-              Passionate <span className="text-gradient-cyan-violet">MERN Stack Developer</span>
-            </h2>
-            <div className="space-y-4 body-large">
-              <p>
-                I am a passionate MERN Stack Developer with a strong focus on building
-                modern, scalable, and user-friendly web applications. I enjoy turning
-                ideas into real-world digital solutions through clean and efficient code.
-              </p>
-              <p>
-                I have solid experience working with MongoDB, Express.js, React, and
-                Node.js, and I am also highly comfortable with Next.js for building
-                fast, SEO-friendly, and full-stack applications.
-              </p>
-              <p>
-                My goal is to continuously improve my skills and become a professional
-                full-stack developer, contributing to impactful projects and delivering
-                high-quality solutions.
-              </p>
-            </div>
+            <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
+              style={{ background: "radial-gradient(circle, hsl(270 100% 57% / 0.14), transparent 70%)" }} />
 
-            {/* Stats counters */}
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-border">
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.4 + i * 0.1, duration: 0.6 }}
-                >
-                  <p className="text-2xl md:text-3xl font-bold text-gradient-cyan-violet">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} inView={inView} />
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-1 font-mono tracking-wider">{stat.label}</p>
-                </motion.div>
-              ))}
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-10">
+                <div className="w-2 h-2 rounded-full bg-glow-violet" />
+                <p className="font-mono text-xs tracking-[0.2em] uppercase text-foreground">Skills</p>
+                <div className="flex-1 h-px border-t border-dashed border-border" />
+              </div>
+
+              <p className="text-xs font-semibold tracking-wider text-foreground mb-4">CORE STACK</p>
+              <div className="flex flex-wrap gap-2.5">
+                {coreStack.map((s, i) => (
+                  <motion.span
+                    key={s}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: 0.25 + i * 0.04, type: "spring", stiffness: 320, damping: 20 }}
+                    whileHover={{ y: -3, borderColor: "hsl(186 100% 50% / 0.6)" }}
+                    className="rounded-full border border-border/70 bg-background/30 px-4 py-2 font-mono text-xs text-foreground/90 cursor-default"
+                  >
+                    {s}
+                  </motion.span>
+                ))}
+              </div>
+
+              <p className="text-xs font-semibold tracking-wider text-foreground mt-8 mb-4">TOOLS &amp; PLATFORMS</p>
+              <div className="flex flex-wrap gap-2.5">
+                {tools.map((s, i) => (
+                  <motion.span
+                    key={s}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: 0.5 + i * 0.05, type: "spring", stiffness: 320, damping: 20 }}
+                    whileHover={{ y: -3, borderColor: "hsl(270 100% 57% / 0.6)" }}
+                    className="rounded-full border border-border/70 bg-background/30 px-4 py-2 font-mono text-xs text-foreground/90 cursor-default"
+                  >
+                    {s}
+                  </motion.span>
+                ))}
+              </div>
+
+              <p className="text-sm font-semibold text-foreground mt-10 mb-4">Certifications</p>
+              <div className="space-y-3">
+                {certifications.map((c, i) => (
+                  <motion.div
+                    key={c}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: 0.7 + i * 0.1, duration: 0.5 }}
+                    className="glass-panel-hover rounded-xl px-4 py-4 flex items-center gap-3"
+                  >
+                    <FileText className="w-4 h-4 text-glow-cyan shrink-0" />
+                    <p className="text-sm text-foreground/90">{c}</p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
