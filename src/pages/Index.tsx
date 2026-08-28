@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Timeline from "@/components/Timeline";
+import Certificates from "@/components/Certificates";
 
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
