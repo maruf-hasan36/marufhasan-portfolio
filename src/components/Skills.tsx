@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import {
   Code2, Server, Blocks, Database, Palette,
   GitBranch, Globe, Lock, FileCode, Layers,
+  Braces, Monitor, Sparkles, ArrowLeftRight, CreditCard, Cloud, Code,
 } from "lucide-react";
 
 const categories = [
@@ -13,8 +14,11 @@ const categories = [
       { name: "HTML5 & CSS3", icon: FileCode, desc: "Semantic markup & modern styling", level: 95 },
       { name: "Tailwind CSS", icon: Palette, desc: "Utility-first responsive design", level: 92 },
       { name: "JavaScript (ES6+)", icon: Code2, desc: "Modern JS, async patterns, modules", level: 92 },
+      { name: "TypeScript", icon: Braces, desc: "Type-safe scalable code", level: 85 },
       { name: "React.js", icon: Blocks, desc: "Hooks, components, state management", level: 90 },
       { name: "Next.js", icon: Layers, desc: "SSR, SEO-friendly, full-stack apps", level: 88 },
+      { name: "Responsive Design", icon: Monitor, desc: "Mobile-first adaptive layouts", level: 90 },
+      { name: "DaisyUI / Hero UI", icon: Sparkles, desc: "Component UI libraries", level: 80 },
     ],
   },
   {
@@ -23,22 +27,28 @@ const categories = [
     skills: [
       { name: "Node.js", icon: Server, desc: "Server-side JavaScript runtime", level: 90 },
       { name: "Express.js", icon: Globe, desc: "REST API development & routing", level: 88 },
+      { name: "REST API Development", icon: ArrowLeftRight, desc: "Designing & consuming RESTful APIs", level: 90 },
     ],
   },
   {
-    title: "Database",
+    title: "Database & ORM",
     color: "220 80% 60%",
     skills: [
-      { name: "MongoDB", icon: Database, desc: "NoSQL document database & Mongoose", level: 88 },
+      { name: "MongoDB / Atlas", icon: Database, desc: "NoSQL document database & Mongoose", level: 88 },
+      { name: "MySQL", icon: Database, desc: "Relational SQL database", level: 78 },
+      { name: "PostgreSQL", icon: Database, desc: "Advanced open-source SQL database", level: 75 },
+      { name: "Prisma", icon: Database, desc: "Type-safe ORM & migrations", level: 80 },
     ],
   },
   {
-    title: "Authentication & Tools",
+    title: "Auth, Payments & Tools",
     color: "200 80% 55%",
     skills: [
       { name: "JWT / Better Auth", icon: Lock, desc: "Secure auth & user management", level: 85 },
+      { name: "Stripe Payments", icon: CreditCard, desc: "Payment integration & checkout", level: 82 },
       { name: "Git & GitHub", icon: GitBranch, desc: "Version control & collaboration", level: 92 },
-      { name: "REST API Development", icon: Globe, desc: "Designing & consuming RESTful APIs", level: 90 },
+      { name: "VS Code / Figma", icon: Code, desc: "Editor & design tooling", level: 90 },
+      { name: "Vercel / Netlify", icon: Cloud, desc: "Deployment & hosting platforms", level: 88 },
     ],
   },
 ];
@@ -109,11 +119,11 @@ const SkillCard = ({ skill, index, catColor }: {
 
 const capabilities = [
   "Build full-stack web applications using MERN stack",
-  "Create responsive and modern UI with React & Tailwind",
+  "Create responsive and modern UI with React, Tailwind & TypeScript",
   "Develop server-side logic and APIs using Node.js & Express",
-  "Work with databases (MongoDB) efficiently",
+  "Work with MongoDB, PostgreSQL, MySQL & Prisma ORM",
   "Build SEO-friendly apps using Next.js",
-  "Handle authentication and user management systems",
+  "Handle authentication, payments (Stripe) and user management",
 ];
 
 const Skills = () => {
@@ -136,7 +146,7 @@ const Skills = () => {
           <h2 className="heading-section mb-4">
             My <span className="text-gradient-cyan-violet">tech stack</span>
           </h2>
-          <p className="body-large max-w-lg mx-auto">The MERN stack technologies I use to build modern web applications.</p>
+          <p className="body-large max-w-lg mx-auto">The technologies I use to build modern, scalable web applications — from frontend UI to backend APIs and databases.</p>
         </motion.div>
 
         <div className="space-y-12">
