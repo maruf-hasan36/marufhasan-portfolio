@@ -62,14 +62,15 @@ const Navbar = () => {
           }`}
         >
           {/* Logo */}
-          <a href="#" className="relative group flex items-center gap-1.5 select-none">
+          <a href="#" className="relative group flex items-center gap-2 select-none">
             <motion.span
-              whileHover={{ rotate: 8, scale: 1.08 }}
+              whileHover={{ rotate: -8, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className="flex items-center justify-center w-8 h-8 rounded-xl border border-border/60 font-mono-code font-bold text-sm text-gradient-cyan-violet"
-              style={{ background: "hsl(var(--surface-glass) / 0.5)" }}
+              className="relative flex items-center justify-center w-8 h-8 rounded-xl font-mono-code font-bold text-sm text-white overflow-hidden"
+              style={{ background: "linear-gradient(135deg, hsl(var(--glow-cyan)), hsl(var(--glow-violet)))" }}
             >
               M
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             </motion.span>
             <span className="font-mono-code font-bold text-lg tracking-tight text-foreground">
               H<span className="text-gradient-cyan-violet">.</span>
