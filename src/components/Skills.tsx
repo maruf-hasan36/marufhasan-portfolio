@@ -146,7 +146,7 @@ const Skills = () => {
           <h2 className="heading-section mb-4">
             My <span className="text-gradient-cyan-violet">tech stack</span>
           </h2>
-          <p className="body-large max-w-lg mx-auto">The MERN stack technologies I use to build modern web applications.</p>
+          <p className="body-large max-w-lg mx-auto">The technologies I use to build modern, scalable web applications — from frontend UI to backend APIs and databases.</p>
         </motion.div>
 
         <div className="space-y-12">
