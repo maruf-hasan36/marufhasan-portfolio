@@ -123,7 +123,7 @@ const Navbar = () => {
                   transition={{ duration: 0.25 }}
                   className="block"
                 >
-                  {theme === "dark" ? <Sun className="w-4.5 h-4.5 w-[18px] h-[18px]" /> : <Moon className="w-[18px] h-[18px]" />}
+                  {theme === "dark" ? <Sun className="w-[18px] h-[18px]" /> : <Moon className="w-[18px] h-[18px]" />}
                 </motion.span>
               </AnimatePresence>
             </motion.button>
