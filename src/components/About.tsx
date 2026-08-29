@@ -5,9 +5,11 @@ import marufPhoto from "@/assets/maruf-photo.png";
 import resumeAsset from "@/assets/maruf-resume.pdf.asset.json";
 
 const coreStack = [
-  "MongoDB", "Express.js", "React.js", "Node.js", "Next.js",
-  "JWT", "Better Auth", "shadcn/ui", "Framer Motion", "JavaScript",
-  "HTML5", "CSS3", "Tailwind CSS", "REST API", "Git & GitHub",
+  "JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "Tailwind CSS",
+  "React.js", "Next.js", "Node.js", "Express.js", "REST API",
+  "MongoDB", "MongoDB Atlas", "MySQL", "PostgreSQL", "Prisma",
+  "JWT", "Better Auth", "DaisyUI", "Hero UI", "Responsive Design",
+  "Git & GitHub",
 ];
 
 const tools = ["VS Code", "Figma", "Vercel", "Netlify", "Stripe"];
