@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const links = [
   { label: "About", href: "#about" },
@@ -15,12 +15,20 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    if (typeof window === "undefined") return "dark";
+    return (localStorage.getItem("theme") as "dark" | "light") || "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("light", theme === "light");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handler);
 
-    // Track active section
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -43,69 +51,111 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "glass-panel py-3" : "py-5"
-        }`}
+        transition={{ delay: 0.5, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed top-4 left-0 right-0 z-50 px-4"
       >
-        <div className="section-container flex items-center justify-between">
-          <a href="#" className="font-bold text-xl tracking-tight relative group">
-            <span className="text-gradient-cyan-violet">MH</span>
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-glow-cyan group-hover:w-full transition-all duration-300" />
+        <div
+          className={`mx-auto flex items-center justify-between gap-4 rounded-full glass-panel px-5 py-2.5 transition-all duration-500 ${
+            scrolled ? "max-w-3xl shadow-[0_8px_40px_-12px_hsl(var(--glow-cyan)/0.25)]" : "max-w-4xl"
+          }`}
+        >
+          {/* Logo */}
+          <a href="#" className="relative group flex items-center gap-1.5 select-none">
+            <motion.span
+              whileHover={{ rotate: 8, scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="flex items-center justify-center w-8 h-8 rounded-xl border border-border/60 font-mono-code font-bold text-sm text-gradient-cyan-violet"
+              style={{ background: "hsl(var(--surface-glass) / 0.5)" }}
+            >
+              M
+            </motion.span>
+            <span className="font-mono-code font-bold text-lg tracking-tight text-foreground">
+              H<span className="text-gradient-cyan-violet">.</span>
+            </span>
+            <span className="absolute -bottom-0.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300" style={{ background: "hsl(var(--glow-cyan))" }} />
           </a>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-0.5">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className={`text-sm px-3 py-2 rounded-lg transition-all duration-300 relative ${
+                className={`relative text-sm px-3.5 py-2 rounded-full transition-colors duration-300 ${
                   activeSection === l.href
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {l.label}
                 {activeSection === l.href && (
                   <motion.span
-                    layoutId="nav-indicator"
-                    className="absolute bottom-0 left-3 right-3 h-px"
-                    style={{ background: "hsl(186 100% 50%)" }}
-                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    layoutId="nav-pill"
+                    className="absolute inset-0 rounded-full"
+                    style={{
+                      background: "hsl(var(--glow-cyan) / 0.12)",
+                      border: "1px solid hsl(var(--glow-cyan) / 0.3)",
+                    }}
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
+                <span className="relative z-10">{l.label}</span>
               </a>
             ))}
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          <div className="flex items-center gap-1">
+            {/* Theme toggle */}
+            <motion.button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              whileTap={{ scale: 0.85, rotate: 90 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              className="p-2.5 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              aria-label="Toggle theme"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={theme}
+                  initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.25 }}
+                  className="block"
+                >
+                  {theme === "dark" ? <Sun className="w-4.5 h-4.5 w-[18px] h-[18px]" /> : <Moon className="w-[18px] h-[18px]" />}
+                </motion.span>
+              </AnimatePresence>
+            </motion.button>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden p-2.5 rounded-full hover:bg-muted transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </motion.nav>
 
       {/* Mobile menu */}
       <motion.div
         initial={false}
-        animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-        className={`fixed top-16 left-0 right-0 z-40 glass-panel p-6 md:hidden ${
+        animate={mobileOpen ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: -16, scale: 0.98 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        className={`fixed top-20 left-4 right-4 z-40 glass-panel rounded-3xl p-4 md:hidden ${
           mobileOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setMobileOpen(false)}
-              className="text-sm py-3 px-4 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
+              className="text-sm py-3 px-4 rounded-xl hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
             >
               {l.label}
             </a>
