@@ -108,8 +108,17 @@
   }
 
   ::selection {
-    background: hsl(186 100% 50% / 0.3);
-    color: hsl(240 5% 96%);
+    background: hsl(var(--glow-cyan) / 0.3);
+    color: hsl(var(--foreground));
+  }
+
+  html {
+    transition: background-color 0.4s ease;
+  }
+  body, section, nav, header, footer, div, a, button, span, p, h1, h2, h3, h4 {
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
   }
 
   ::-webkit-scrollbar {
