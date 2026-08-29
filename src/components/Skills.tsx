@@ -119,11 +119,11 @@ const SkillCard = ({ skill, index, catColor }: {
 
 const capabilities = [
   "Build full-stack web applications using MERN stack",
-  "Create responsive and modern UI with React & Tailwind",
+  "Create responsive and modern UI with React, Tailwind & TypeScript",
   "Develop server-side logic and APIs using Node.js & Express",
-  "Work with databases (MongoDB) efficiently",
+  "Work with MongoDB, PostgreSQL, MySQL & Prisma ORM",
   "Build SEO-friendly apps using Next.js",
-  "Handle authentication and user management systems",
+  "Handle authentication, payments (Stripe) and user management",
 ];
 
 const Skills = () => {
