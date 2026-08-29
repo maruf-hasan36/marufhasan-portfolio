@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import {
   Code2, Server, Blocks, Database, Palette,
   GitBranch, Globe, Lock, FileCode, Layers,
+  Braces, Monitor, Sparkles, ArrowLeftRight, CreditCard, Cloud, Code,
 } from "lucide-react";
 
 const categories = [
