@@ -11,6 +11,7 @@ import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CursorFollower from "@/components/CursorFollower";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => (
   <div className="relative min-h-screen">
@@ -29,6 +30,7 @@ const Index = () => (
       <Contact />
     </main>
     <Footer />
+    <ChatBot />
   </div>
 );
 
