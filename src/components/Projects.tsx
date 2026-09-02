@@ -101,7 +101,7 @@ const ProjectCard = ({
           className="w-full h-full object-cover"
           style={{ scale: imgScale }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
 
         {/* Year badge */}
         <div
