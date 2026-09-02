@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import MagneticButton from "./MagneticButton";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import marufPhoto from "@/assets/maruf-photo.png";
 
 const roles = [
@@ -107,7 +107,7 @@ const Hero = () => {
 
             <motion.div variants={childVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
               <MagneticButton variant="primary" href="#projects">
-                View Projects <ArrowRight className="w-4 h-4 ml-1" />
+                View Projects
               </MagneticButton>
               <MagneticButton variant="glass" href="#contact">
                 Contact Me
