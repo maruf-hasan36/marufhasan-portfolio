@@ -165,7 +165,6 @@ const ProjectCard = ({
             }}
           >
             <span>View Project</span>
-            <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
             <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/40 to-transparent" />
           </motion.a>
         </motion.div>
