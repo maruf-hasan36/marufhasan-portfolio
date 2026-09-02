@@ -4,15 +4,41 @@ import { MapPin, Download, FileText } from "lucide-react";
 import marufPhoto from "@/assets/maruf-photo.png";
 import resumeAsset from "@/assets/maruf-resume.pdf.asset.json";
 
-const coreStack = [
-  "JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "Tailwind CSS",
-  "React.js", "Next.js", "Node.js", "Express.js", "REST API",
-  "MongoDB", "MongoDB Atlas", "MySQL", "PostgreSQL", "Prisma",
-  "JWT", "Better Auth", "DaisyUI", "Hero UI", "Responsive Design",
-  "Git & GitHub",
+type Skill = { label: string; icon?: string; color?: string };
+const icon = (slug: string, color?: string) =>
+  `https://cdn.simpleicons.org/${slug}${color ? `/${color}` : ""}`;
+
+const coreStack: Skill[] = [
+  { label: "JavaScript (ES6+)", icon: icon("javascript") },
+  { label: "TypeScript", icon: icon("typescript") },
+  { label: "HTML5", icon: icon("html5") },
+  { label: "CSS3", icon: icon("css3") },
+  { label: "Tailwind CSS", icon: icon("tailwindcss") },
+  { label: "React.js", icon: icon("react") },
+  { label: "Next.js", icon: icon("nextdotjs", "999999") },
+  { label: "Node.js", icon: icon("nodedotjs") },
+  { label: "Express.js", icon: icon("express", "999999") },
+  { label: "REST API", icon: icon("openapiinitiative") },
+  { label: "MongoDB", icon: icon("mongodb") },
+  { label: "MongoDB Atlas", icon: icon("mongodb") },
+  { label: "MySQL", icon: icon("mysql") },
+  { label: "PostgreSQL", icon: icon("postgresql") },
+  { label: "Prisma", icon: icon("prisma") },
+  { label: "JWT", icon: icon("jsonwebtokens") },
+  { label: "Better Auth", icon: icon("auth0") },
+  { label: "DaisyUI", icon: icon("daisyui") },
+  { label: "Hero UI" },
+  { label: "Responsive Design", icon: icon("googlechrome") },
+  { label: "Git & GitHub", icon: icon("git") },
 ];
 
-const tools = ["VS Code", "Figma", "Vercel", "Netlify", "Stripe"];
+const tools: Skill[] = [
+  { label: "VS Code", icon: icon("visualstudiocode") },
+  { label: "Figma", icon: icon("figma") },
+  { label: "Vercel", icon: icon("vercel", "999999") },
+  { label: "Netlify", icon: icon("netlify") },
+  { label: "Stripe", icon: icon("stripe") },
+];
 
 const certifications = [
   "Complete Web Development Course — Programming Hero",
@@ -146,14 +172,15 @@ const About = () => {
               <div className="flex flex-wrap gap-2.5">
                 {coreStack.map((s, i) => (
                   <motion.span
-                    key={s}
+                    key={s.label}
                     initial={{ opacity: 0, scale: 0.85 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.25 + i * 0.04, type: "spring", stiffness: 320, damping: 20 }}
                     whileHover={{ y: -3, borderColor: "hsl(186 100% 50% / 0.6)" }}
-                    className="rounded-full border border-border/70 bg-background/30 px-4 py-2 font-mono text-xs text-foreground/90 cursor-default"
+                    className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-4 py-2 font-mono text-xs text-foreground/90 cursor-default"
                   >
-                    {s}
+                    {s.icon && <img src={s.icon} alt="" aria-hidden loading="lazy" className="w-3.5 h-3.5 object-contain" />}
+                    {s.label}
                   </motion.span>
                 ))}
               </div>
@@ -162,14 +189,15 @@ const About = () => {
               <div className="flex flex-wrap gap-2.5">
                 {tools.map((s, i) => (
                   <motion.span
-                    key={s}
+                    key={s.label}
                     initial={{ opacity: 0, scale: 0.85 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.5 + i * 0.05, type: "spring", stiffness: 320, damping: 20 }}
                     whileHover={{ y: -3, borderColor: "hsl(270 100% 57% / 0.6)" }}
-                    className="rounded-full border border-border/70 bg-background/30 px-4 py-2 font-mono text-xs text-foreground/90 cursor-default"
+                    className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-4 py-2 font-mono text-xs text-foreground/90 cursor-default"
                   >
-                    {s}
+                    {s.icon && <img src={s.icon} alt="" aria-hidden loading="lazy" className="w-3.5 h-3.5 object-contain" />}
+                    {s.label}
                   </motion.span>
                 ))}
               </div>
