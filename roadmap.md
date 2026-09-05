@@ -1,1 +1,1 @@
-- [ ] Fix resume download on mobile (About.tsx)
+- [x] Fix resume download on mobile (About.tsx)
