@@ -63,6 +63,25 @@ const About = () => {
   };
   const handleLeave = () => { x.set(0); y.set(0); };
 
+  // Mobile browsers ignore the `download` attribute on cross-origin/CDN URLs,
+  // so fetch the PDF as a blob and trigger the download manually.
+  const handleResumeDownload = async () => {
+    try {
+      const res = await fetch(resumeAsset.url);
+      const blob = await res.blob();
+      const objectUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = objectUrl;
+      a.download = "Maruf-Hasan-Resume.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 5000);
+    } catch {
+      window.open(resumeAsset.url, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <section id="about" className="py-32 relative" ref={ref}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
@@ -137,16 +156,16 @@ const About = () => {
                   <MapPin className="w-4 h-4 text-glow-cyan" />
                   <span className="font-mono text-xs text-foreground/90">Dhaka, Bangladesh</span>
                 </div>
-                <motion.a
-                  href={resumeAsset.url}
-                  download="Maruf-Hasan-Resume.pdf"
+                <motion.button
+                  type="button"
+                  onClick={handleResumeDownload}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium bg-primary text-primary-foreground transition-shadow duration-300 hover:shadow-[0_0_40px_-6px_hsl(var(--glow-cyan)/0.6)]"
                 >
                   <Download className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" />
                   Download Resume
-                </motion.a>
+                </motion.button>
               </div>
             </div>
           </motion.div>
