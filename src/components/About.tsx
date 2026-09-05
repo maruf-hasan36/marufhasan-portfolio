@@ -124,7 +124,7 @@ const About = () => {
                   <div className="relative w-32 h-32 rounded-full p-[2px]"
                     style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))", transform: "translateZ(30px)" }}>
                     <img
-                      src={marufPhoto}
+                      src={marufTshirt.url}
                       alt="Maruf Hasan — MERN Stack Developer"
                       className="w-full h-full rounded-full object-cover object-top bg-background"
                     />
