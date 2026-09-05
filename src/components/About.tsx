@@ -1,7 +1,7 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Download, FileText } from "lucide-react";
-import marufPhoto from "@/assets/maruf-photo.png";
+import marufTshirt from "@/assets/maruf-tshirt.png.asset.json";
 import resumeAsset from "@/assets/maruf-resume.pdf.asset.json";
 
 type Skill = { label: string; icon?: string; color?: string };
