@@ -2,7 +2,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { Award, BadgeCheck, Calendar, Hash, Sparkles, Trophy, Link2, GraduationCap } from "lucide-react";
 import certificateImg from "@/assets/certificate-webdev.jpg";
-import certificateTs from "@/assets/certificate-typescript.jpg.asset.json";
+import certificateTs from "@/assets/certificate-typescript.jpg";
 
 interface CertificateItem {
   img: string;
@@ -31,7 +31,7 @@ const certificates: CertificateItem[] = [
     skills: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "Node.js", "Express.js", "MongoDB"],
   },
   {
-    img: certificateTs.url,
+    img: certificateTs,
     alt: "TypeScript Variables and Data Types project certificate — Coursera, awarded to Maruf Hasan",
     title: "TypeScript Variables and Data Types",
     issuer: "Coursera Project Network",

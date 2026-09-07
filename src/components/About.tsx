@@ -1,7 +1,7 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Download, FileText } from "lucide-react";
-import marufTshirt from "@/assets/maruf-tshirt.png.asset.json";
+import marufTshirt from "@/assets/maruf-tshirt.jpg";
 import resumeAsset from "@/assets/maruf-resume.pdf.asset.json";
 
 type Skill = { label: string; icon?: string; color?: string };
@@ -124,8 +124,11 @@ const About = () => {
                   <div className="relative w-32 h-32 rounded-full p-[2px]"
                     style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))", transform: "translateZ(30px)" }}>
                     <img
-                      src={marufTshirt.url}
+                      src={marufTshirt}
                       alt="Maruf Hasan — MERN Stack Developer"
+                      width={128}
+                      height={128}
+                      decoding="async"
                       className="w-full h-full rounded-full object-cover object-top bg-background"
                     />
                   </div>
