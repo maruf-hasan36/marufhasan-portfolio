@@ -10,12 +10,12 @@ const links = [
 ];
 
 const Footer = () => (
-  <footer className="relative py-16 border-t border-border/50">
+  <footer className="relative py-10 border-t border-border/50">
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
       style={{ background: "linear-gradient(90deg, transparent, hsl(186 100% 50% / 0.2), transparent)" }} />
 
     <div className="section-container">
-      <div className="grid md:grid-cols-3 gap-10 mb-12">
+      <div className="grid md:grid-cols-3 gap-7 mb-8">
         <div>
           <a href="#" className="font-bold text-2xl tracking-tight">
             <span className="text-gradient-cyan-violet">MH</span>

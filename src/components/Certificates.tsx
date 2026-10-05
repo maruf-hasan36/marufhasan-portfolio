@@ -120,7 +120,7 @@ const CertificateCard = ({ cert }: { cert: CertificateItem }) => {
 
 const Certificates = () => {
   return (
-    <section id="certificates" className="py-24 md:py-32 relative">
+    <section id="certificates" className="py-16 md:py-20 relative">
       <div className="section-container">
         {/* Header */}
         <motion.div
@@ -128,24 +128,24 @@ const Certificates = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <span className="inline-flex items-center gap-2 text-sm font-mono text-muted-foreground tracking-widest uppercase">
             <Award className="w-4 h-4" style={{ color: "hsl(270 100% 70%)" }} />
             Certificates & Achievements
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
+          <h2 className="heading-section mt-3">
             Proof of <span className="text-gradient-cyan-violet">Mastery</span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
+          <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-xl mx-auto">
             Milestones that mark my journey as a MERN stack developer.
           </p>
         </motion.div>
 
-        <div className="space-y-20">
+        <div className="space-y-12">
           {certificates.map((cert, idx) => (
-            <div key={cert.title} className="grid lg:grid-cols-2 gap-10 items-center">
-              <div className={idx % 2 === 1 ? "lg:order-2" : ""}>
+            <div key={cert.title} className="grid grid-cols-1 lg:grid-cols-2 gap-7 items-center">
+              <div className={`min-w-0 ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
                 <CertificateCard cert={cert} />
               </div>
 
@@ -155,18 +155,18 @@ const Certificates = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className={`space-y-8 ${idx % 2 === 1 ? "lg:order-1" : ""}`}
+                className={`min-w-0 space-y-5 ${idx % 2 === 1 ? "lg:order-1" : ""}`}
               >
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold leading-snug">{cert.title}</h3>
-                  <p className="text-lg mt-1" style={{ color: "hsl(186 100% 50%)" }}>
+                  <h3 className="text-xl md:text-2xl font-bold leading-tight">{cert.title}</h3>
+                  <p className="text-base mt-1" style={{ color: "hsl(186 100% 50%)" }}>
                     {cert.issuer}
                   </p>
-                  <p className="text-muted-foreground mt-4 leading-relaxed">{cert.description}</p>
+                  <p className="text-sm md:text-[15px] text-muted-foreground mt-3 leading-normal">{cert.description}</p>
                 </div>
 
                 {/* Highlight grid */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3 min-w-0">
                   {cert.highlights.map((h, i) => (
                     <motion.div
                       key={h.label}
@@ -175,11 +175,11 @@ const Certificates = () => {
                       viewport={{ once: true }}
                       transition={{ delay: 0.15 + i * 0.1, duration: 0.5 }}
                       whileHover={{ y: -4, scale: 1.02 }}
-                      className="glass-panel rounded-xl p-4"
+                      className="glass-panel rounded-xl p-3 min-w-0"
                     >
                       <h.icon className="w-5 h-5 mb-2" style={{ color: i % 2 === 0 ? "hsl(186 100% 50%)" : "hsl(270 100% 70%)" }} />
                       <p className="text-xs text-muted-foreground">{h.label}</p>
-                      <p className="text-sm font-semibold mt-0.5 break-words">{h.value}</p>
+                      <p className="text-sm font-semibold mt-0.5 break-words [overflow-wrap:anywhere]">{h.value}</p>
                     </motion.div>
                   ))}
                 </div>

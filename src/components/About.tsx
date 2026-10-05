@@ -83,7 +83,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-32 relative" ref={ref}>
+    <section id="about" className="py-16 md:py-20 relative" ref={ref}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
         style={{ background: "linear-gradient(90deg, transparent, hsl(186 100% 50% / 0.3), transparent)" }} />
 
@@ -94,20 +94,20 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="glass-panel rounded-3xl p-8 md:p-10 relative overflow-hidden"
+            className="glass-panel rounded-3xl p-6 md:p-8 relative overflow-hidden"
           >
             <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
               style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.12), transparent 70%)" }} />
 
             <div className="relative">
-              <div className="flex items-center gap-3 mb-10">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-2 rounded-full bg-glow-cyan" />
                 <p className="font-mono text-xs tracking-[0.2em] uppercase text-foreground">About Me</p>
                 <div className="flex-1 h-px border-t border-dashed border-border" />
               </div>
 
               {/* Avatar with 3D tilt + orbit ring */}
-              <div className="flex justify-center mb-10">
+              <div className="flex justify-center mb-7">
                 <motion.div
                   ref={imgRef}
                   onMouseMove={handleMouse}
@@ -135,7 +135,7 @@ const About = () => {
                 </motion.div>
               </div>
 
-              <div className="space-y-4 text-base leading-relaxed text-[hsl(var(--text-secondary))]">
+              <div className="space-y-3 text-sm md:text-[15px] leading-normal text-[hsl(var(--text-secondary))]">
                 <p>
                   Hi 👋, I'm a passionate <span className="text-foreground font-medium">MERN Stack Developer</span> focused on
                   building modern, scalable, and user-friendly web applications.
@@ -154,7 +154,7 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 mt-8">
+              <div className="flex flex-wrap items-center gap-3 mt-6">
                 <div className="inline-flex items-center gap-2 rounded-full border border-border/70 px-4 py-2.5">
                   <MapPin className="w-4 h-4 text-glow-cyan" />
                   <span className="font-mono text-xs text-foreground/90">Dhaka, Bangladesh</span>
@@ -178,20 +178,20 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="glass-panel rounded-3xl p-8 md:p-10 relative overflow-hidden"
+            className="glass-panel rounded-3xl p-6 md:p-8 relative overflow-hidden"
           >
             <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
               style={{ background: "radial-gradient(circle, hsl(270 100% 57% / 0.14), transparent 70%)" }} />
 
             <div className="relative">
-              <div className="flex items-center gap-3 mb-10">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-2 rounded-full bg-glow-violet" />
                 <p className="font-mono text-xs tracking-[0.2em] uppercase text-foreground">Skills</p>
                 <div className="flex-1 h-px border-t border-dashed border-border" />
               </div>
 
               <p className="text-xs font-semibold tracking-wider text-foreground mb-4">CORE STACK</p>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2">
                 {coreStack.map((s, i) => (
                   <motion.span
                     key={s.label}
@@ -199,7 +199,7 @@ const About = () => {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.25 + i * 0.04, type: "spring", stiffness: 320, damping: 20 }}
                     whileHover={{ y: -3, borderColor: "hsl(186 100% 50% / 0.6)" }}
-                    className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-4 py-2 font-mono text-xs text-foreground/90 cursor-default"
+                    className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-3 py-1.5 font-mono text-xs text-foreground/90 cursor-default"
                   >
                     {s.icon && <img src={s.icon} alt="" aria-hidden loading="lazy" className="w-3.5 h-3.5 object-contain" />}
                     {s.label}
@@ -207,8 +207,8 @@ const About = () => {
                 ))}
               </div>
 
-              <p className="text-xs font-semibold tracking-wider text-foreground mt-8 mb-4">TOOLS &amp; PLATFORMS</p>
-              <div className="flex flex-wrap gap-2.5">
+              <p className="text-xs font-semibold tracking-wider text-foreground mt-6 mb-3">TOOLS &amp; PLATFORMS</p>
+              <div className="flex flex-wrap gap-2">
                 {tools.map((s, i) => (
                   <motion.span
                     key={s.label}
@@ -216,7 +216,7 @@ const About = () => {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.5 + i * 0.05, type: "spring", stiffness: 320, damping: 20 }}
                     whileHover={{ y: -3, borderColor: "hsl(270 100% 57% / 0.6)" }}
-                    className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-4 py-2 font-mono text-xs text-foreground/90 cursor-default"
+                    className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-3 py-1.5 font-mono text-xs text-foreground/90 cursor-default"
                   >
                     {s.icon && <img src={s.icon} alt="" aria-hidden loading="lazy" className="w-3.5 h-3.5 object-contain" />}
                     {s.label}
@@ -224,15 +224,15 @@ const About = () => {
                 ))}
               </div>
 
-              <p className="text-sm font-semibold text-foreground mt-10 mb-4">Certifications</p>
-              <div className="space-y-3">
+              <p className="text-sm font-semibold text-foreground mt-6 mb-3">Certifications</p>
+              <div className="space-y-2">
                 {certifications.map((c, i) => (
                   <motion.div
                     key={c}
                     initial={{ opacity: 0, x: 20 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.7 + i * 0.1, duration: 0.5 }}
-                    className="glass-panel-hover rounded-xl px-4 py-4 flex items-center gap-3"
+                    className="glass-panel-hover rounded-xl px-4 py-3 flex items-center gap-3"
                   >
                     <FileText className="w-4 h-4 text-glow-cyan shrink-0" />
                     <p className="text-sm text-foreground/90">{c}</p>

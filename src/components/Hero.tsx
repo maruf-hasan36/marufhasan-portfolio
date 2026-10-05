@@ -53,7 +53,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[min(760px,92svh)] flex items-center justify-center overflow-hidden pt-24 pb-16">
       {/* Atmospheric gradients */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-30"
@@ -82,26 +82,26 @@ const Hero = () => {
         >
           {/* Text Content */}
           <div className="text-center lg:text-left">
-            <motion.div variants={childVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8">
+            <motion.div variants={childVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse-glow" />
               <span className="font-mono text-xs tracking-wider text-muted-foreground">Available for work</span>
             </motion.div>
 
-            <motion.h1 variants={childVariants} className="text-5xl md:text-7xl lg:text-[5.5rem] font-light tracking-tight mb-2 leading-[1.05]">
+            <motion.h1 variants={childVariants} className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-2 leading-[1.08]">
               Hi, I'm
             </motion.h1>
-            <motion.h1 variants={childVariants} className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight mb-6 leading-[1.05]">
+            <motion.h1 variants={childVariants} className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-[1.08]">
               <span className="text-gradient-cyan-violet">Maruf Hasan</span>
             </motion.h1>
 
-            <motion.div variants={childVariants} className="h-14 md:h-16 mb-6 flex items-center justify-center lg:justify-start">
-              <h2 className="text-xl md:text-3xl font-medium text-foreground/80">
+            <motion.div variants={childVariants} className="min-h-10 md:min-h-12 mb-4 flex items-center justify-center lg:justify-start">
+              <h2 className="text-lg md:text-2xl font-medium text-foreground/80">
                 {displayText}
                 <span className="inline-block w-[3px] h-[1.1em] bg-glow-cyan ml-1 animate-pulse-glow align-middle" />
               </h2>
             </motion.div>
 
-            <motion.p variants={childVariants} className="body-large max-w-xl mb-10">
+            <motion.p variants={childVariants} className="body-large max-w-xl mb-7">
               I build modern, scalable, and user-friendly web applications using MongoDB, Express.js, React, and Node.js — turning ideas into real-world digital solutions through clean and efficient code.
             </motion.p>
 
@@ -115,14 +115,14 @@ const Hero = () => {
             </motion.div>
 
             {/* Quick stats */}
-            <motion.div variants={childVariants} className="flex gap-8 mt-12 justify-center lg:justify-start">
+            <motion.div variants={childVariants} className="flex gap-7 mt-8 justify-center lg:justify-start">
               {[
                 { value: "MERN", label: "Stack" },
                 { value: "Next.js", label: "Full-Stack" },
                 { value: "REST", label: "APIs" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <p className="text-2xl md:text-3xl font-bold text-gradient-cyan-violet">{stat.value}</p>
+                  <p className="text-xl md:text-2xl font-bold text-gradient-cyan-violet">{stat.value}</p>
                   <p className="text-xs text-muted-foreground font-mono tracking-wider mt-1">{stat.label}</p>
                 </div>
               ))}
@@ -164,7 +164,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 hidden md:block"
       >
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
           <ChevronDown className="w-5 h-5 text-muted-foreground" />
