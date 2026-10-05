@@ -144,8 +144,8 @@ const Certificates = () => {
 
         <div className="space-y-12">
           {certificates.map((cert, idx) => (
-            <div key={cert.title} className="grid lg:grid-cols-2 gap-7 items-center">
-              <div className={idx % 2 === 1 ? "lg:order-2" : ""}>
+            <div key={cert.title} className="grid grid-cols-1 lg:grid-cols-2 gap-7 items-center">
+              <div className={`min-w-0 ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
                 <CertificateCard cert={cert} />
               </div>
 
@@ -155,7 +155,7 @@ const Certificates = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className={`space-y-5 ${idx % 2 === 1 ? "lg:order-1" : ""}`}
+                className={`min-w-0 space-y-5 ${idx % 2 === 1 ? "lg:order-1" : ""}`}
               >
                 <div>
                   <h3 className="text-xl md:text-2xl font-bold leading-tight">{cert.title}</h3>
@@ -166,7 +166,7 @@ const Certificates = () => {
                 </div>
 
                 {/* Highlight grid */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-3 min-w-0">
                   {cert.highlights.map((h, i) => (
                     <motion.div
                       key={h.label}
@@ -175,11 +175,11 @@ const Certificates = () => {
                       viewport={{ once: true }}
                       transition={{ delay: 0.15 + i * 0.1, duration: 0.5 }}
                       whileHover={{ y: -4, scale: 1.02 }}
-                      className="glass-panel rounded-xl p-3"
+                      className="glass-panel rounded-xl p-3 min-w-0"
                     >
                       <h.icon className="w-5 h-5 mb-2" style={{ color: i % 2 === 0 ? "hsl(186 100% 50%)" : "hsl(270 100% 70%)" }} />
                       <p className="text-xs text-muted-foreground">{h.label}</p>
-                      <p className="text-sm font-semibold mt-0.5 break-words">{h.value}</p>
+                      <p className="text-sm font-semibold mt-0.5 break-words [overflow-wrap:anywhere]">{h.value}</p>
                     </motion.div>
                   ))}
                 </div>
