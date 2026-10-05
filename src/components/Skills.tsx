@@ -83,7 +83,7 @@ const SkillCard = ({ skill, index, catColor }: {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={handleLeave}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className="glass-panel-hover rounded-xl p-6 cursor-default group relative overflow-hidden"
+      className="glass-panel-hover rounded-xl p-4 cursor-default group relative overflow-hidden"
     >
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{ background: `radial-gradient(circle at 50% 50%, hsl(${catColor} / 0.06), transparent 70%)` }} />
@@ -131,7 +131,7 @@ const Skills = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-32 relative" ref={ref}>
+    <section id="skills" className="py-16 md:py-20 relative" ref={ref}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
         style={{ background: "linear-gradient(90deg, transparent, hsl(186 100% 50% / 0.3), transparent)" }} />
 
@@ -140,7 +140,7 @@ const Skills = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <p className="font-mono text-sm tracking-[0.2em] uppercase text-glow-cyan mb-4">Skills</p>
           <h2 className="heading-section mb-4">
@@ -149,7 +149,7 @@ const Skills = () => {
           <p className="body-large max-w-lg mx-auto">The technologies I use to build modern, scalable web applications — from frontend UI to backend APIs and databases.</p>
         </motion.div>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           {categories.map((cat) => (
             <div key={cat.title}>
               <div className="flex items-center gap-3 mb-5">
@@ -157,7 +157,7 @@ const Skills = () => {
                 <p className="font-mono text-xs tracking-[0.2em] uppercase text-muted-foreground">{cat.title}</p>
                 <div className="flex-1 h-px bg-border/50" />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {cat.skills.map((skill, i) => (
                   <SkillCard key={skill.name} skill={skill} index={i} catColor={cat.color} />
                 ))}
@@ -172,14 +172,14 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-20"
+          className="mt-12"
         >
           <div className="flex items-center gap-3 mb-5">
             <div className="w-2 h-2 rounded-full bg-glow-cyan" />
             <p className="font-mono text-xs tracking-[0.2em] uppercase text-muted-foreground">What I Can Do</p>
             <div className="flex-1 h-px bg-border/50" />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {capabilities.map((cap, i) => (
               <motion.div
                 key={cap}
@@ -187,13 +187,13 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="glass-panel-hover rounded-xl p-5 flex items-start gap-3"
+                className="glass-panel-hover rounded-xl p-4 flex items-start gap-3"
               >
                 <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 shrink-0"
                   style={{ background: "hsl(186 100% 50% / 0.1)", border: "1px solid hsl(186 100% 50% / 0.3)" }}>
                   <span className="text-glow-cyan text-xs">✓</span>
                 </div>
-                <p className="text-sm text-foreground/90 leading-relaxed">{cap}</p>
+                <p className="text-sm text-foreground/90 leading-normal">{cap}</p>
               </motion.div>
             ))}
           </div>

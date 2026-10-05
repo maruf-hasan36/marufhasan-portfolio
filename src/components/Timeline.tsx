@@ -24,7 +24,7 @@ const Timeline = () => {
   const headerOpacity = useTransform(smoothProgress, [0, 0.12], [0, 1]);
 
   return (
-    <section id="journey" className="py-32 relative overflow-hidden" ref={containerRef}>
+    <section id="journey" className="py-16 md:py-20 relative overflow-hidden" ref={containerRef}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
         style={{ background: "linear-gradient(90deg, transparent, hsl(186 100% 50% / 0.3), transparent)" }} />
 
@@ -40,7 +40,7 @@ const Timeline = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <p className="font-mono text-sm tracking-[0.2em] uppercase text-glow-cyan mb-4">Journey</p>
           <h2 className="heading-section mb-4">
@@ -66,7 +66,7 @@ const Timeline = () => {
             }}
           />
 
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-10 md:space-y-14">
             {milestones.map((m, i) => {
               const Icon = m.icon;
               const isLeft = i % 2 === 0;
@@ -91,7 +91,7 @@ const Timeline = () => {
                       onKeyDown={(e) => e.key === "Enter" && setExpanded(isExpanded ? null : i)}
                       role="button"
                       tabIndex={0}
-                      className="glass-panel-hover rounded-2xl p-6 md:p-7 relative overflow-hidden cursor-pointer group"
+                      className="glass-panel-hover rounded-2xl p-4 md:p-5 relative overflow-hidden cursor-pointer group"
                       whileHover={{ y: -4, scale: 1.01 }}
                       transition={{ type: "spring", stiffness: 300, damping: 22 }}
                     >
@@ -112,7 +112,7 @@ const Timeline = () => {
                         </span>
                       </div>
 
-                      <h3 className="text-lg md:text-xl font-semibold mb-2 group-hover:text-gradient-cyan-violet transition-all duration-300">
+                      <h3 className="text-base md:text-lg font-semibold mb-2 group-hover:text-gradient-cyan-violet transition-all duration-300">
                         {m.title}
                       </h3>
 
@@ -121,19 +121,19 @@ const Timeline = () => {
                           key={isExpanded ? "open" : "closed"}
                           initial={false}
                           animate={{
-                            height: isExpanded ? "auto" : "3rem",
+                            height: isExpanded ? "auto" : "2.75rem",
                             opacity: isExpanded ? 1 : 0.75,
                           }}
                           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                           className="overflow-hidden"
                         >
-                          <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed">
+                          <p className="text-sm text-muted-foreground leading-normal">
                             {m.desc}
                           </p>
                         </motion.div>
                       </AnimatePresence>
 
-                      <div className={`mt-4 flex items-center gap-2 text-xs font-medium ${isLeft ? "md:justify-end" : "md:justify-start"}`}
+                      <div className={`mt-3 flex items-center gap-2 text-xs font-medium ${isLeft ? "md:justify-end" : "md:justify-start"}`}
                         style={{ color: `hsl(${m.color})` }}>
                         <span className="opacity-60 group-hover:opacity-100 transition-opacity">
                           {isExpanded ? "Click to collapse" : "Click to expand"}
@@ -191,9 +191,9 @@ const Timeline = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="relative flex justify-center mt-16 md:mt-20"
+            className="relative flex justify-center mt-10 md:mt-12"
           >
-            <div className="glass-panel rounded-2xl px-6 py-4 flex items-center gap-4 border border-dashed border-border/60">
+            <div className="glass-panel rounded-2xl px-5 py-3 flex items-center gap-4 border border-dashed border-border/60">
               <motion.div
                 className="w-10 h-10 rounded-full flex items-center justify-center"
                 style={{ background: "hsl(186 100% 50% / 0.12)", border: "1px solid hsl(186 100% 50% / 0.3)" }}

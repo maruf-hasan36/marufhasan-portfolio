@@ -170,15 +170,15 @@ const ProjectCard = ({
         </motion.div>
       </div>
 
-      <div className="p-6 relative" style={{ transform: "translateZ(30px)" }}>
+      <div className="p-4 md:p-5 relative" style={{ transform: "translateZ(30px)" }}>
         <div className="flex items-start justify-between mb-3">
-          <h3 className="text-xl font-semibold group-hover:text-gradient-cyan-violet transition-all duration-300">
+          <h3 className="text-lg font-semibold group-hover:text-gradient-cyan-violet transition-all duration-300">
             {project.title}
           </h3>
           <ArrowUpRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0" />
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+        <p className="text-sm text-muted-foreground leading-normal mb-4">
           {project.desc}
         </p>
 
@@ -206,7 +206,7 @@ const ProjectCard = ({
 };
 
 const Projects = () => (
-  <section id="projects" className="py-32 relative">
+  <section id="projects" className="py-16 md:py-20 relative">
     <div
       className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
       style={{
@@ -221,7 +221,7 @@ const Projects = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center mb-16"
+        className="text-center mb-10"
       >
         <p className="font-mono text-sm tracking-[0.2em] uppercase text-glow-cyan mb-4">
           Work
@@ -235,7 +235,7 @@ const Projects = () => (
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4">
         {projects.map((p, i) => (
           <ProjectCard key={p.title} project={p} index={i} />
         ))}

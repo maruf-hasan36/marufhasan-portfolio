@@ -65,7 +65,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-32 relative" ref={ref}>
+    <section id="contact" className="py-16 md:py-20 relative" ref={ref}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
         style={{ background: "linear-gradient(90deg, transparent, hsl(186 100% 50% / 0.3), transparent)" }} />
 
@@ -74,7 +74,7 @@ const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <p className="font-mono text-sm tracking-[0.2em] uppercase text-glow-cyan mb-4">Contact</p>
           <h2 className="heading-section mb-4">
@@ -83,19 +83,19 @@ const Contact = () => {
           <p className="body-large max-w-lg mx-auto">Have a project in mind? Let's create something extraordinary.</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-[1fr_1.5fr] gap-10 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-[1fr_1.5fr] gap-6 max-w-4xl mx-auto">
           {/* Info column */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-3"
           >
             {info.map(({ icon: Icon, label, value, href }) => {
               const Wrapper: any = href ? "a" : "div";
               const wrapperProps = href ? { href, target: href.startsWith("http") ? "_blank" : undefined, rel: "noopener noreferrer" } : {};
               return (
-                <Wrapper key={label} {...wrapperProps} className="glass-panel rounded-xl p-5 flex items-center gap-4 group hover:border-glow-cyan/20 transition-colors duration-300 block">
+                <Wrapper key={label} {...wrapperProps} className="glass-panel rounded-xl p-3 flex items-center gap-3 group hover:border-glow-cyan/20 transition-colors duration-300 block">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
                     style={{ background: "hsl(186 100% 50% / 0.1)", border: "1px solid hsl(186 100% 50% / 0.2)" }}>
                     <Icon className="w-4 h-4 text-glow-cyan" />
@@ -109,7 +109,7 @@ const Contact = () => {
             })}
 
             {/* Decorative */}
-            <div className="glass-panel rounded-xl p-5 relative overflow-hidden">
+            <div className="glass-panel rounded-xl p-4 relative overflow-hidden">
               <div className="absolute inset-0 opacity-5"
                 style={{
                   backgroundImage: "radial-gradient(circle at 1px 1px, hsl(186 100% 50%) 1px, transparent 0)",
@@ -126,9 +126,9 @@ const Contact = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
             onSubmit={handleSubmit(onSubmit)}
-            className="glass-panel rounded-2xl p-8 space-y-6"
+            className="glass-panel rounded-2xl p-5 md:p-6 space-y-4"
           >
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4">
               <AnimatedInput label="Name" {...register("name")} error={errors.name?.message} />
               <AnimatedInput label="Email" type="email" {...register("email")} error={errors.email?.message} />
             </div>
