@@ -3,41 +3,64 @@ import { useRef } from "react";
 import { MapPin, Download, FileText } from "lucide-react";
 import marufTshirt from "@/assets/maruf-tshirt.jpg";
 import resumeAsset from "@/assets/maruf-resume.pdf.asset.json";
+import javascriptIcon from "@/assets/skill-icons/javascript.svg";
+import typescriptIcon from "@/assets/skill-icons/typescript.svg";
+import htmlIcon from "@/assets/skill-icons/html5.svg";
+import cssIcon from "@/assets/skill-icons/css3.svg";
+import tailwindIcon from "@/assets/skill-icons/tailwindcss.svg";
+import reactIcon from "@/assets/skill-icons/react.svg";
+import nextIcon from "@/assets/skill-icons/nextdotjs.svg";
+import nodeIcon from "@/assets/skill-icons/nodedotjs.svg";
+import expressIcon from "@/assets/skill-icons/express.svg";
+import apiIcon from "@/assets/skill-icons/openapiinitiative.svg";
+import mongoIcon from "@/assets/skill-icons/mongodb.svg";
+import mysqlIcon from "@/assets/skill-icons/mysql.svg";
+import postgresIcon from "@/assets/skill-icons/postgresql.svg";
+import prismaIcon from "@/assets/skill-icons/prisma.svg";
+import jwtIcon from "@/assets/skill-icons/jsonwebtokens.svg";
+import authIcon from "@/assets/skill-icons/auth0.svg";
+import daisyIcon from "@/assets/skill-icons/daisyui.svg";
+import heroIcon from "@/assets/skill-icons/heroui.svg";
+import responsiveIcon from "@/assets/skill-icons/googlechrome.svg";
+import gitIcon from "@/assets/skill-icons/git.svg";
+import vscodeIcon from "@/assets/skill-icons/vscode.svg";
+import figmaIcon from "@/assets/skill-icons/figma.svg";
+import vercelIcon from "@/assets/skill-icons/vercel.svg";
+import netlifyIcon from "@/assets/skill-icons/netlify.svg";
+import stripeIcon from "@/assets/skill-icons/stripe.svg";
 
-type Skill = { label: string; icon?: string; color?: string };
-const icon = (slug: string, color?: string) =>
-  `https://cdn.simpleicons.org/${slug}${color ? `/${color}` : ""}`;
+type Skill = { label: string; icon: string };
 
 const coreStack: Skill[] = [
-  { label: "JavaScript (ES6+)", icon: icon("javascript") },
-  { label: "TypeScript", icon: icon("typescript") },
-  { label: "HTML5", icon: icon("html5") },
-  { label: "CSS3", icon: icon("css3") },
-  { label: "Tailwind CSS", icon: icon("tailwindcss") },
-  { label: "React.js", icon: icon("react") },
-  { label: "Next.js", icon: icon("nextdotjs", "999999") },
-  { label: "Node.js", icon: icon("nodedotjs") },
-  { label: "Express.js", icon: icon("express", "999999") },
-  { label: "REST API", icon: icon("openapiinitiative") },
-  { label: "MongoDB", icon: icon("mongodb") },
-  { label: "MongoDB Atlas", icon: icon("mongodb") },
-  { label: "MySQL", icon: icon("mysql") },
-  { label: "PostgreSQL", icon: icon("postgresql") },
-  { label: "Prisma", icon: icon("prisma") },
-  { label: "JWT", icon: icon("jsonwebtokens") },
-  { label: "Better Auth", icon: icon("auth0") },
-  { label: "DaisyUI", icon: icon("daisyui") },
-  { label: "Hero UI" },
-  { label: "Responsive Design", icon: icon("googlechrome") },
-  { label: "Git & GitHub", icon: icon("git") },
+  { label: "JavaScript (ES6+)", icon: javascriptIcon },
+  { label: "TypeScript", icon: typescriptIcon },
+  { label: "HTML5", icon: htmlIcon },
+  { label: "CSS3", icon: cssIcon },
+  { label: "Tailwind CSS", icon: tailwindIcon },
+  { label: "React.js", icon: reactIcon },
+  { label: "Next.js", icon: nextIcon },
+  { label: "Node.js", icon: nodeIcon },
+  { label: "Express.js", icon: expressIcon },
+  { label: "REST API", icon: apiIcon },
+  { label: "MongoDB", icon: mongoIcon },
+  { label: "MongoDB Atlas", icon: mongoIcon },
+  { label: "MySQL", icon: mysqlIcon },
+  { label: "PostgreSQL", icon: postgresIcon },
+  { label: "Prisma", icon: prismaIcon },
+  { label: "JWT", icon: jwtIcon },
+  { label: "Better Auth", icon: authIcon },
+  { label: "DaisyUI", icon: daisyIcon },
+  { label: "Hero UI", icon: heroIcon },
+  { label: "Responsive Design", icon: responsiveIcon },
+  { label: "Git & GitHub", icon: gitIcon },
 ];
 
 const tools: Skill[] = [
-  { label: "VS Code", icon: icon("visualstudiocode") },
-  { label: "Figma", icon: icon("figma") },
-  { label: "Vercel", icon: icon("vercel", "999999") },
-  { label: "Netlify", icon: icon("netlify") },
-  { label: "Stripe", icon: icon("stripe") },
+  { label: "VS Code", icon: vscodeIcon },
+  { label: "Figma", icon: figmaIcon },
+  { label: "Vercel", icon: vercelIcon },
+  { label: "Netlify", icon: netlifyIcon },
+  { label: "Stripe", icon: stripeIcon },
 ];
 
 const certifications = [
@@ -201,7 +224,7 @@ const About = () => {
                     whileHover={{ y: -3, borderColor: "hsl(186 100% 50% / 0.6)" }}
                     className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-3 py-1.5 font-mono text-xs text-foreground/90 cursor-default"
                   >
-                    {s.icon && <img src={s.icon} alt="" aria-hidden loading="lazy" className="w-3.5 h-3.5 object-contain" />}
+                    <img src={s.icon} alt="" aria-hidden width={16} height={16} className="w-4 h-4 shrink-0 object-contain" />
                     {s.label}
                   </motion.span>
                 ))}
@@ -218,7 +241,7 @@ const About = () => {
                     whileHover={{ y: -3, borderColor: "hsl(270 100% 57% / 0.6)" }}
                     className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-3 py-1.5 font-mono text-xs text-foreground/90 cursor-default"
                   >
-                    {s.icon && <img src={s.icon} alt="" aria-hidden loading="lazy" className="w-3.5 h-3.5 object-contain" />}
+                    <img src={s.icon} alt="" aria-hidden width={16} height={16} className="w-4 h-4 shrink-0 object-contain" />
                     {s.label}
                   </motion.span>
                 ))}
