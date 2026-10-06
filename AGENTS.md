@@ -1,0 +1,1 @@
+Use bundled SVG assets for technology logos instead of runtime CDN URLs, so skill branding works offline and on localhost.
