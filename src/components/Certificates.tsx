@@ -1,217 +1,96 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
-import { Award, BadgeCheck, Calendar, Hash, Sparkles, Trophy, Link2, GraduationCap } from "lucide-react";
-import certificateImg from "@/assets/certificate-webdev.jpg";
-import certificateTs from "@/assets/certificate-typescript.jpg";
+import { motion } from "framer-motion";
+import { Award, BadgeCheck, Calendar, ExternalLink } from "lucide-react";
+import certificateWeb from "@/assets/certificate-webdev.webp";
+import certificateTypeScript from "@/assets/certificate-typescript.webp";
 
-interface CertificateItem {
-  img: string;
-  alt: string;
-  title: string;
-  issuer: string;
-  description: string;
-  highlights: { icon: typeof Trophy; label: string; value: string }[];
-  skills: string[];
-}
-
-const certificates: CertificateItem[] = [
+const certificates = [
   {
-    img: certificateImg,
-    alt: "Complete Web Development Course certificate — Programming Hero, awarded to Maruf Hasan",
+    image: certificateWeb,
+    alt: "Complete Web Development Course certificate awarded to Maruf Hasan by Programming Hero",
     title: "Complete Web Development Course",
     issuer: "Programming Hero",
-    description:
-      "Graduated with excellence after six months of intensive, project-based training — covering the full MERN stack, AI-powered development practices, and professional web engineering readiness.",
-    highlights: [
-      { icon: Trophy, label: "Completed with Excellence", value: "Top Distinction" },
-      { icon: Calendar, label: "Duration", value: "Jan – Jun 2026" },
-      { icon: Hash, label: "Credential ID", value: "WEB13-1366" },
-      { icon: Sparkles, label: "Batch", value: "Batch 13" },
-    ],
-    skills: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "Node.js", "Express.js", "MongoDB"],
+    date: "Jan – Jun 2026",
+    credential: "WEB13-1366",
+    href: undefined,
   },
   {
-    img: certificateTs,
-    alt: "TypeScript Variables and Data Types project certificate — Coursera, awarded to Maruf Hasan",
+    image: certificateTypeScript,
+    alt: "TypeScript Variables and Data Types certificate awarded to Maruf Hasan by Coursera",
     title: "TypeScript Variables and Data Types",
     issuer: "Coursera Project Network",
-    description:
-      "Completed a hands-on Coursera project mastering TypeScript fundamentals — variables, data types, type annotations, and writing safer, strongly-typed JavaScript code.",
-    highlights: [
-      { icon: GraduationCap, label: "Authorized by", value: "Coursera" },
-      { icon: Calendar, label: "Completed", value: "Sep 7, 2026" },
-      { icon: Link2, label: "Verify at", value: "coursera.org/verify/92IBJ0Y5OAA8" },
-      { icon: Sparkles, label: "Format", value: "Guided Project" },
-    ],
-    skills: ["TypeScript", "JavaScript", "Type Annotations", "Data Types", "Variables"],
+    date: "Sep 7, 2026",
+    credential: "92IBJ0Y5OAA8",
+    href: "https://coursera.org/verify/92IBJ0Y5OAA8",
   },
 ];
 
-const CertificateCard = ({ cert }: { cert: CertificateItem }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [hovered, setHovered] = useState(false);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(y, [-200, 200], [8, -8]), { stiffness: 200, damping: 25 });
-  const rotateY = useSpring(useTransform(x, [-200, 200], [-8, 8]), { stiffness: 200, damping: 25 });
-
-  const handleMouse = (e: React.MouseEvent) => {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    x.set(e.clientX - rect.left - rect.width / 2);
-    y.set(e.clientY - rect.top - rect.height / 2);
-  };
-
-  const handleLeave = () => {
-    x.set(0);
-    y.set(0);
-    setHovered(false);
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      style={{ perspective: 1200 }}
-    >
+const Certificates = () => (
+  <section id="certificates" className="py-12 md:py-14 relative">
+    <div className="section-container">
       <motion.div
-        ref={ref}
-        onMouseMove={handleMouse}
-        onMouseLeave={handleLeave}
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative rounded-2xl overflow-hidden glass-panel group cursor-pointer"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-7"
       >
-        {/* Glow border */}
-        <div
-          className="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100"
-          style={{ boxShadow: "0 0 60px hsl(186 100% 50% / 0.25), inset 0 0 0 1px hsl(186 100% 50% / 0.3)" }}
-        />
-        <img
-          src={cert.img}
-          alt={cert.alt}
-          className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]"
-          loading="lazy"
-        />
-        {/* Shine sweep */}
-        <motion.div
-          animate={hovered ? { x: ["-100%", "200%"] } : {}}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"
-        />
-        {/* Verified badge */}
-        <motion.div
-          initial={{ scale: 0, rotate: -20 }}
-          whileInView={{ scale: 1, rotate: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, type: "spring", stiffness: 200, damping: 15 }}
-          className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full glass-panel text-xs font-medium"
-          style={{ transform: "translateZ(40px)" }}
-        >
-          <BadgeCheck className="w-4 h-4" style={{ color: "hsl(186 100% 50%)" }} />
-          Verified Credential
-        </motion.div>
+        <span className="inline-flex items-center gap-2 text-xs font-mono text-muted-foreground tracking-widest uppercase">
+          <Award className="w-4 h-4 text-glow-violet" /> Certificates &amp; Achievements
+        </span>
+        <h2 className="heading-section mt-3">Verified <span className="text-gradient-cyan-violet">credentials</span></h2>
       </motion.div>
-    </motion.div>
-  );
-};
 
-const Certificates = () => {
-  return (
-    <section id="certificates" className="py-16 md:py-20 relative">
-      <div className="section-container">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10"
-        >
-          <span className="inline-flex items-center gap-2 text-sm font-mono text-muted-foreground tracking-widest uppercase">
-            <Award className="w-4 h-4" style={{ color: "hsl(270 100% 70%)" }} />
-            Certificates & Achievements
-          </span>
-          <h2 className="heading-section mt-3">
-            Proof of <span className="text-gradient-cyan-violet">Mastery</span>
-          </h2>
-          <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-xl mx-auto">
-            Milestones that mark my journey as a MERN stack developer.
-          </p>
-        </motion.div>
+      <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+        {certificates.map((certificate, index) => {
+          const Wrapper = certificate.href ? motion.a : motion.div;
+          const linkProps = certificate.href
+            ? { href: certificate.href, target: "_blank", rel: "noopener noreferrer" }
+            : {};
 
-        <div className="space-y-12">
-          {certificates.map((cert, idx) => (
-            <div key={cert.title} className="grid grid-cols-1 lg:grid-cols-2 gap-7 items-center">
-              <div className={`min-w-0 ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
-                <CertificateCard cert={cert} />
+          return (
+            <Wrapper
+              key={certificate.title}
+              {...linkProps}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.55 }}
+              whileHover={{ y: -4 }}
+              className="glass-panel-hover rounded-xl overflow-hidden group"
+            >
+              <div className="relative aspect-[16/9] bg-muted/30 overflow-hidden">
+                <img
+                  src={certificate.image}
+                  alt={certificate.alt}
+                  width={1120}
+                  height={866}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-contain p-3 transition-transform duration-500 group-hover:scale-[1.015]"
+                />
+                <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full glass-panel px-2.5 py-1 text-[10px] font-medium">
+                  <BadgeCheck className="w-3.5 h-3.5 text-glow-cyan" /> Verified
+                </span>
               </div>
 
-              {/* Details */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className={`min-w-0 space-y-5 ${idx % 2 === 1 ? "lg:order-1" : ""}`}
-              >
-                <div>
-                  <h3 className="text-xl md:text-2xl font-bold leading-tight">{cert.title}</h3>
-                  <p className="text-base mt-1" style={{ color: "hsl(186 100% 50%)" }}>
-                    {cert.issuer}
-                  </p>
-                  <p className="text-sm md:text-[15px] text-muted-foreground mt-3 leading-normal">{cert.description}</p>
-                </div>
-
-                {/* Highlight grid */}
-                <div className="grid grid-cols-2 gap-3 min-w-0">
-                  {cert.highlights.map((h, i) => (
-                    <motion.div
-                      key={h.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.15 + i * 0.1, duration: 0.5 }}
-                      whileHover={{ y: -4, scale: 1.02 }}
-                      className="glass-panel rounded-xl p-3 min-w-0"
-                    >
-                      <h.icon className="w-5 h-5 mb-2" style={{ color: i % 2 === 0 ? "hsl(186 100% 50%)" : "hsl(270 100% 70%)" }} />
-                      <p className="text-xs text-muted-foreground">{h.label}</p>
-                      <p className="text-sm font-semibold mt-0.5 break-words [overflow-wrap:anywhere]">{h.value}</p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Skills covered */}
-                <div>
-                  <p className="text-sm font-mono text-muted-foreground mb-3 uppercase tracking-wider">
-                    Skills Certified
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {cert.skills.map((s, i) => (
-                      <motion.span
-                        key={s}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 + i * 0.05, type: "spring", stiffness: 300, damping: 20 }}
-                        whileHover={{ scale: 1.1, y: -2 }}
-                        className="px-3 py-1.5 text-xs font-medium rounded-full glass-panel"
-                      >
-                        {s}
-                      </motion.span>
-                    ))}
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-base font-semibold leading-snug">{certificate.title}</h3>
+                    <p className="text-sm text-glow-cyan mt-1">{certificate.issuer}</p>
                   </div>
+                  {certificate.href && <ExternalLink className="w-4 h-4 text-muted-foreground shrink-0" />}
                 </div>
-              </motion.div>
-            </div>
-          ))}
-        </div>
+                <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-xs text-muted-foreground font-mono">
+                  <span className="inline-flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{certificate.date}</span>
+                  <span>ID: {certificate.credential}</span>
+                </div>
+              </div>
+            </Wrapper>
+          );
+        })}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Certificates;
