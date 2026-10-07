@@ -2,7 +2,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import MagneticButton from "./MagneticButton";
 import { ChevronDown } from "lucide-react";
-import marufPhoto from "@/assets/maruf-photo.png";
+import marufPhoto from "@/assets/maruf-photo.webp";
+import reactIcon from "@/assets/skill-icons/react.svg";
+import nextIcon from "@/assets/skill-icons/nextdotjs.svg";
+import nodeIcon from "@/assets/skill-icons/nodedotjs.svg";
+import mongoIcon from "@/assets/skill-icons/mongodb.svg";
 
 const roles = [
   "MERN Stack Developer",
@@ -53,7 +57,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[min(760px,92svh)] flex items-center justify-center overflow-hidden pt-24 pb-16">
+    <section className="relative min-h-[min(700px,88svh)] flex items-center justify-center overflow-hidden pt-24 pb-10">
       {/* Atmospheric gradients */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-30"
@@ -78,7 +82,7 @@ const Hero = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center"
+           className="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-center"
         >
           {/* Text Content */}
           <div className="text-center lg:text-left">
@@ -87,11 +91,9 @@ const Hero = () => {
               <span className="font-mono text-xs tracking-wider text-muted-foreground">Available for work</span>
             </motion.div>
 
-            <motion.h1 variants={childVariants} className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-2 leading-[1.08]">
-              Hi, I'm
-            </motion.h1>
-            <motion.h1 variants={childVariants} className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-[1.08]">
-              <span className="text-gradient-cyan-violet">Maruf Hasan</span>
+            <motion.h1 variants={childVariants} className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-4 leading-[1.08]">
+              Hi, I'm<br />
+              <span className="font-bold text-gradient-cyan-violet">Maruf Hasan</span>
             </motion.h1>
 
             <motion.div variants={childVariants} className="min-h-10 md:min-h-12 mb-4 flex items-center justify-center lg:justify-start">
@@ -114,17 +116,18 @@ const Hero = () => {
               </MagneticButton>
             </motion.div>
 
-            {/* Quick stats */}
-            <motion.div variants={childVariants} className="flex gap-7 mt-8 justify-center lg:justify-start">
-              {[
-                { value: "MERN", label: "Stack" },
-                { value: "Next.js", label: "Full-Stack" },
-                { value: "REST", label: "APIs" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <p className="text-xl md:text-2xl font-bold text-gradient-cyan-violet">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground font-mono tracking-wider mt-1">{stat.label}</p>
-                </div>
+             {/* Core stack */}
+             <motion.div variants={childVariants} className="flex flex-wrap gap-2 mt-7 justify-center lg:justify-start" aria-label="Core technology stack">
+               {[
+                 { label: "React", icon: reactIcon },
+                 { label: "Next.js", icon: nextIcon },
+                 { label: "Node.js", icon: nodeIcon },
+                 { label: "MongoDB", icon: mongoIcon },
+               ].map((tech) => (
+                 <div key={tech.label} className="inline-flex items-center gap-2 rounded-lg border border-border/70 bg-background/40 px-3 py-2 backdrop-blur-sm">
+                   <img src={tech.icon} alt="" aria-hidden width={16} height={16} className="h-4 w-4 object-contain" />
+                   <span className="font-mono text-xs font-medium text-foreground/90">{tech.label}</span>
+                 </div>
               ))}
             </motion.div>
           </div>
@@ -150,8 +153,8 @@ const Hero = () => {
               <div className="absolute -inset-8 rounded-full opacity-40 blur-3xl"
                 style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.2), hsl(270 100% 57% / 0.1), transparent 70%)" }} />
 
-              <div className="relative w-72 h-72 rounded-full overflow-hidden border-2 border-border/30">
-                <img src={marufPhoto} alt="Maruf Hasan" className="w-full h-full object-cover object-top" />
+               <div className="relative w-64 h-64 rounded-full overflow-hidden border-2 border-border/30">
+                 <img src={marufPhoto} alt="Maruf Hasan, MERN stack developer in Dhaka" width={544} height={800} fetchPriority="high" decoding="async" className="w-full h-full object-cover object-top" />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-t from-background/40 via-transparent to-transparent" />
               </div>
             </div>

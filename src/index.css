@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -114,6 +112,9 @@
 
   html {
     transition: background-color 0.4s ease;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    overflow-x: clip;
   }
   body, section, nav, header, footer, div, a, button, span, p, h1, h2, h3, h4 {
     transition-property: background-color, border-color, color;
@@ -177,7 +178,7 @@
   }
 
   .section-container {
-    @apply max-w-6xl mx-auto px-6 md:px-8;
+    @apply max-w-6xl mx-auto px-5 md:px-8;
   }
 
   .heading-display {

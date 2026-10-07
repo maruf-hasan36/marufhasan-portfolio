@@ -1,7 +1,7 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Download, FileText } from "lucide-react";
-import marufTshirt from "@/assets/maruf-tshirt.jpg";
+import marufTshirt from "@/assets/maruf-tshirt.webp";
 import resumeAsset from "@/assets/maruf-resume.pdf.asset.json";
 import javascriptIcon from "@/assets/skill-icons/javascript.svg";
 import typescriptIcon from "@/assets/skill-icons/typescript.svg";
@@ -106,31 +106,31 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-16 md:py-20 relative" ref={ref}>
+    <section id="about" className="py-12 md:py-14 relative" ref={ref}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
         style={{ background: "linear-gradient(90deg, transparent, hsl(186 100% 50% / 0.3), transparent)" }} />
 
       <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-5">
           {/* ---------- LEFT: About Me card ---------- */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="glass-panel rounded-3xl p-6 md:p-8 relative overflow-hidden"
+            className="glass-panel rounded-2xl p-5 md:p-6 relative overflow-hidden"
           >
             <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
               style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.12), transparent 70%)" }} />
 
             <div className="relative">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="w-2 h-2 rounded-full bg-glow-cyan" />
                 <p className="font-mono text-xs tracking-[0.2em] uppercase text-foreground">About Me</p>
                 <div className="flex-1 h-px border-t border-dashed border-border" />
               </div>
 
               {/* Avatar with 3D tilt + orbit ring */}
-              <div className="flex justify-center mb-7">
+              <div className="flex justify-center mb-5">
                 <motion.div
                   ref={imgRef}
                   onMouseMove={handleMouse}
@@ -144,13 +144,14 @@ const About = () => {
                     animate={{ rotate: 360 }}
                     transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
                   />
-                  <div className="relative w-32 h-32 rounded-full p-[2px]"
+                  <div className="relative w-28 h-28 rounded-full p-[2px]"
                     style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))", transform: "translateZ(30px)" }}>
                     <img
                       src={marufTshirt}
                       alt="Maruf Hasan — MERN Stack Developer"
-                      width={128}
-                      height={128}
+                      width={488}
+                      height={512}
+                      loading="lazy"
                       decoding="async"
                       className="w-full h-full rounded-full object-cover object-top bg-background"
                     />
@@ -158,14 +159,10 @@ const About = () => {
                 </motion.div>
               </div>
 
-              <div className="space-y-3 text-sm md:text-[15px] leading-normal text-[hsl(var(--text-secondary))]">
+              <div className="space-y-2.5 text-sm leading-normal text-[hsl(var(--text-secondary))]">
                 <p>
                   Hi 👋, I'm a passionate <span className="text-foreground font-medium">MERN Stack Developer</span> focused on
                   building modern, scalable, and user-friendly web applications.
-                </p>
-                <p>
-                  I work daily with MongoDB, Express.js, React and Node.js, and I'm highly comfortable with
-                  Next.js for fast, SEO-friendly full-stack apps.
                 </p>
                 <p>
                   I enjoy turning ideas into real-world digital solutions through clean, efficient code — from
@@ -177,7 +174,7 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 mt-6">
+              <div className="flex flex-wrap items-center gap-3 mt-5">
                 <div className="inline-flex items-center gap-2 rounded-full border border-border/70 px-4 py-2.5">
                   <MapPin className="w-4 h-4 text-glow-cyan" />
                   <span className="font-mono text-xs text-foreground/90">Dhaka, Bangladesh</span>
@@ -201,19 +198,19 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="glass-panel rounded-3xl p-6 md:p-8 relative overflow-hidden"
+            className="glass-panel rounded-2xl p-5 md:p-6 relative overflow-hidden"
           >
             <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
               style={{ background: "radial-gradient(circle, hsl(270 100% 57% / 0.14), transparent 70%)" }} />
 
             <div className="relative">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="w-2 h-2 rounded-full bg-glow-violet" />
                 <p className="font-mono text-xs tracking-[0.2em] uppercase text-foreground">Skills</p>
                 <div className="flex-1 h-px border-t border-dashed border-border" />
               </div>
 
-              <p className="text-xs font-semibold tracking-wider text-foreground mb-4">CORE STACK</p>
+              <p className="text-xs font-semibold tracking-wider text-foreground mb-3">CORE STACK</p>
               <div className="flex flex-wrap gap-2">
                 {coreStack.map((s, i) => (
                   <motion.span
@@ -230,7 +227,7 @@ const About = () => {
                 ))}
               </div>
 
-              <p className="text-xs font-semibold tracking-wider text-foreground mt-6 mb-3">TOOLS &amp; PLATFORMS</p>
+              <p className="text-xs font-semibold tracking-wider text-foreground mt-5 mb-3">TOOLS &amp; PLATFORMS</p>
               <div className="flex flex-wrap gap-2">
                 {tools.map((s, i) => (
                   <motion.span
@@ -247,7 +244,7 @@ const About = () => {
                 ))}
               </div>
 
-              <p className="text-sm font-semibold text-foreground mt-6 mb-3">Certifications</p>
+              <p className="text-sm font-semibold text-foreground mt-5 mb-3">Certifications</p>
               <div className="space-y-2">
                 {certifications.map((c, i) => (
                   <motion.div

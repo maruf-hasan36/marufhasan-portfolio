@@ -1,1 +1,2 @@
 Use bundled SVG assets for technology logos instead of runtime CDN URLs, so skill branding works offline and on localhost.
+Serve visible portfolio photography and screenshots as locally bundled WebP renditions while retaining source-quality originals.

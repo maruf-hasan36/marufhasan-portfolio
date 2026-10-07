@@ -65,7 +65,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 md:py-20 relative" ref={ref}>
+    <section id="contact" className="py-12 md:py-14 relative" ref={ref}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
         style={{ background: "linear-gradient(90deg, transparent, hsl(186 100% 50% / 0.3), transparent)" }} />
 
@@ -74,10 +74,10 @@ const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-10"
+           className="text-center mb-7"
         >
-          <p className="font-mono text-sm tracking-[0.2em] uppercase text-glow-cyan mb-4">Contact</p>
-          <h2 className="heading-section mb-4">
+           <p className="font-mono text-xs tracking-[0.2em] uppercase text-glow-cyan mb-3">Contact</p>
+           <h2 className="heading-section mb-3">
             Let's build something <span className="text-gradient-cyan-violet">together</span>
           </h2>
           <p className="body-large max-w-lg mx-auto">Have a project in mind? Let's create something extraordinary.</p>
@@ -89,7 +89,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="space-y-3"
+             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-2.5"
           >
             {info.map(({ icon: Icon, label, value, href }) => {
               const Wrapper: any = href ? "a" : "div";
@@ -109,7 +109,7 @@ const Contact = () => {
             })}
 
             {/* Decorative */}
-            <div className="glass-panel rounded-xl p-4 relative overflow-hidden">
+             <div className="glass-panel rounded-xl p-4 relative overflow-hidden sm:col-span-2 md:col-span-1">
               <div className="absolute inset-0 opacity-5"
                 style={{
                   backgroundImage: "radial-gradient(circle at 1px 1px, hsl(186 100% 50%) 1px, transparent 0)",
