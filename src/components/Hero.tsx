@@ -91,11 +91,9 @@ const Hero = () => {
               <span className="font-mono text-xs tracking-wider text-muted-foreground">Available for work</span>
             </motion.div>
 
-            <motion.h1 variants={childVariants} className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-2 leading-[1.08]">
-              Hi, I'm
-            </motion.h1>
-            <motion.h1 variants={childVariants} className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-[1.08]">
-              <span className="text-gradient-cyan-violet">Maruf Hasan</span>
+            <motion.h1 variants={childVariants} className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-4 leading-[1.08]">
+              Hi, I'm<br />
+              <span className="font-bold text-gradient-cyan-violet">Maruf Hasan</span>
             </motion.h1>
 
             <motion.div variants={childVariants} className="min-h-10 md:min-h-12 mb-4 flex items-center justify-center lg:justify-start">

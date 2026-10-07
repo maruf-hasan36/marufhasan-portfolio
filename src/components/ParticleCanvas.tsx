@@ -21,6 +21,8 @@ const ParticleCanvas = () => {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -29,7 +31,7 @@ const ParticleCanvas = () => {
     resize();
     window.addEventListener("resize", resize);
 
-    const count = Math.min(120, Math.floor(window.innerWidth / 12));
+    const count = reducedMotion ? 18 : isMobile ? 28 : Math.min(80, Math.floor(window.innerWidth / 16));
     particlesRef.current = Array.from({ length: count }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -65,19 +67,21 @@ const ParticleCanvas = () => {
         ctx.fillStyle = `hsla(${p.hue}, 100%, 60%, ${p.opacity})`;
         ctx.fill();
 
-        // Connect nearby particles
-        for (let j = i + 1; j < particles.length; j++) {
-          const q = particles[j];
-          const dx = p.x - q.x;
-          const dy = p.y - q.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 150) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `hsla(${p.hue}, 80%, 50%, ${0.08 * (1 - dist / 150)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+        // Keep connection rendering desktop-only to reduce mobile paint work.
+        if (!isMobile && !reducedMotion) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const q = particles[j];
+            const dx = p.x - q.x;
+            const dy = p.y - q.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.strokeStyle = `hsla(${p.hue}, 80%, 50%, ${0.08 * (1 - dist / 150)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
           }
         }
 
@@ -96,7 +100,7 @@ const ParticleCanvas = () => {
         p.vy *= 0.99;
       }
 
-      animRef.current = requestAnimationFrame(draw);
+      if (!reducedMotion) animRef.current = requestAnimationFrame(draw);
     };
 
     draw();
