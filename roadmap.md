@@ -1,1 +1,7 @@
 - [x] Fix resume download on mobile (About.tsx)
+- [ ] Reduce vertical spacing and overall page length
+- [ ] Optimize visible images while preserving quality
+- [ ] Compact certificate cards and images
+- [ ] Improve portfolio SEO and sitemap coverage
+- [ ] Make content order and sections recruiter-friendly
+- [ ] Replace hero stats with branded tech badges
