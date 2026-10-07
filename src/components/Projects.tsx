@@ -1,9 +1,9 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { Github, ArrowUpRight } from "lucide-react";
-import projectAiHub from "@/assets/project-aihub.png";
-import projectGoodReads from "@/assets/project-goodreads.png";
-import projectIdeaVault from "@/assets/project-ideavault.png";
+import projectAiHub from "@/assets/project-aihub.webp";
+import projectGoodReads from "@/assets/project-goodreads.webp";
+import projectIdeaVault from "@/assets/project-ideavault.webp";
 
 const projects = [
   {
@@ -94,10 +94,14 @@ const ProjectCard = ({
       className="glass-panel rounded-2xl overflow-hidden group cursor-default relative"
     >
       {/* Project Image */}
-      <div className="relative h-52 overflow-hidden">
+       <div className="relative h-44 overflow-hidden">
         <motion.img
           src={project.image}
           alt={project.title}
+           width={960}
+           height={540}
+           loading="lazy"
+           decoding="async"
           className="w-full h-full object-cover"
           style={{ scale: imgScale }}
         />
@@ -206,7 +210,7 @@ const ProjectCard = ({
 };
 
 const Projects = () => (
-  <section id="projects" className="py-16 md:py-20 relative">
+   <section id="projects" className="py-12 md:py-14 relative">
     <div
       className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
       style={{
@@ -221,12 +225,12 @@ const Projects = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center mb-10"
+         className="text-center mb-7"
       >
-        <p className="font-mono text-sm tracking-[0.2em] uppercase text-glow-cyan mb-4">
+         <p className="font-mono text-xs tracking-[0.2em] uppercase text-glow-cyan mb-3">
           Work
         </p>
-        <h2 className="heading-section mb-4">
+         <h2 className="heading-section mb-3">
           Selected <span className="text-gradient-cyan-violet">projects</span>
         </h2>
         <p className="body-large max-w-lg mx-auto">
