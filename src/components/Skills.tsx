@@ -86,18 +86,15 @@ const SkillCard = ({ skill, index, catColor }: {
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{ background: `radial-gradient(circle at 50% 50%, hsl(${catColor} / 0.06), transparent 70%)` }} />
 
-      <div className="relative" style={{ transform: "translateZ(20px)" }}>
-         <div className="flex items-center gap-3">
-           <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-            style={{ background: `hsl(${catColor} / 0.1)`, border: `1px solid hsl(${catColor} / 0.2)` }}>
-            <Icon className="w-5 h-5" style={{ color: `hsl(${catColor})` }} />
-          </div>
-          <div>
-            <p className="font-medium text-sm text-foreground">{skill.name}</p>
-            <p className="text-xs text-muted-foreground">{skill.desc}</p>
-          </div>
+      <div className="relative sm:flex sm:items-center sm:gap-3" style={{ transform: "translateZ(20px)" }}>
+        <div className="mx-auto sm:mx-0 mb-1.5 sm:mb-0 w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+          style={{ background: `hsl(${catColor} / 0.1)`, border: `1px solid hsl(${catColor} / 0.2)` }}>
+          <Icon className="w-5 h-5" style={{ color: `hsl(${catColor})` }} />
         </div>
-
+        <div className="text-center sm:text-left min-w-0">
+          <p className="font-medium text-[11px] sm:text-sm leading-tight text-foreground">{skill.name}</p>
+          <p className="hidden sm:block text-xs text-muted-foreground">{skill.desc}</p>
+        </div>
       </div>
     </motion.div>
   );
@@ -134,7 +131,7 @@ const Skills = () => {
                 <p className="font-mono text-xs tracking-[0.2em] uppercase text-muted-foreground">{cat.title}</p>
                 <div className="flex-1 h-px bg-border/50" />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-3">
                 {cat.skills.map((skill, i) => (
                   <SkillCard key={skill.name} skill={skill} index={i} catColor={cat.color} />
                 ))}
