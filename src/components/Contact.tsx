@@ -97,7 +97,7 @@ const Contact = () => {
               return (
                 <Wrapper key={label} {...wrapperProps} className="glass-panel rounded-xl p-3 flex items-center gap-3 group hover:border-glow-cyan/20 transition-colors duration-300 block">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                    style={{ background: "hsl(186 100% 50% / 0.1)", border: "1px solid hsl(186 100% 50% / 0.2)" }}>
+                    style={{ background: "hsl(var(--primary) / 0.1)", border: "1px solid hsl(var(--primary) / 0.2)" }}>
                     <Icon className="w-4 h-4 text-glow-cyan" />
                   </div>
                   <div className="min-w-0">
@@ -110,7 +110,7 @@ const Contact = () => {
 
             {/* Decorative */}
              <div className="glass-panel rounded-xl p-4 relative overflow-hidden sm:col-span-2 md:col-span-1">
-              <div className="absolute inset-0 opacity-5"
+              <div className="dark-only-effect absolute inset-0 opacity-5"
                 style={{
                   backgroundImage: "radial-gradient(circle at 1px 1px, hsl(186 100% 50%) 1px, transparent 0)",
                   backgroundSize: "16px 16px",
@@ -157,8 +157,8 @@ const Contact = () => {
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
             >
-              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: "linear-gradient(135deg, hsl(186 100% 50% / 0.2), hsl(270 100% 57% / 0.2))" }} />
+              <span className="dark-only-effect absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(270 100% 57% / 0.2))" }} />
               <span className="relative flex items-center gap-2">
                 {status === "idle" && <><Send className="w-4 h-4" /> Send Message</>}
                 {status === "loading" && <Loader2 className="w-4 h-4 animate-spin" />}

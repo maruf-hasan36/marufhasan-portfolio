@@ -59,7 +59,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-[min(700px,88svh)] flex items-center justify-center overflow-hidden pt-24 pb-10">
       {/* Atmospheric gradients */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="dark-only-effect absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-30"
           style={{ background: "radial-gradient(ellipse at center top, hsl(186 100% 50% / 0.12), transparent 70%)" }} />
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] opacity-20"
@@ -87,7 +87,7 @@ const Hero = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left">
             <motion.div variants={childVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse-glow" />
+              <span className="w-2 h-2 rounded-full bg-status animate-pulse-glow" />
               <span className="font-mono text-xs tracking-wider text-muted-foreground">Available for work</span>
             </motion.div>
 
@@ -125,7 +125,7 @@ const Hero = () => {
                  { label: "MongoDB", icon: mongoIcon },
                ].map((tech) => (
                  <div key={tech.label} className="inline-flex items-center gap-2 rounded-lg border border-border/70 bg-background/40 px-3 py-2 backdrop-blur-sm">
-                   <img src={tech.icon} alt="" aria-hidden width={16} height={16} className="h-4 w-4 object-contain" />
+                   <img src={tech.icon} alt="" aria-hidden width={16} height={16} className="tech-logo h-4 w-4 object-contain" />
                    <span className="font-mono text-xs font-medium text-foreground/90">{tech.label}</span>
                  </div>
               ))}
@@ -139,18 +139,18 @@ const Hero = () => {
           >
             <div className="relative">
               {/* Orbiting rings */}
-              <div className="absolute -inset-12 rounded-full border border-border/20 animate-[spin_25s_linear_infinite]" />
-              <div className="absolute -inset-20 rounded-full border border-border/10 animate-[spin_35s_linear_infinite_reverse]" />
+              <div className="dark-only-effect absolute -inset-12 rounded-full border border-border/20 animate-[spin_25s_linear_infinite]" />
+              <div className="dark-only-effect absolute -inset-20 rounded-full border border-border/10 animate-[spin_35s_linear_infinite_reverse]" />
               {/* Orbiting dots */}
-              <div className="absolute -inset-12 animate-[spin_25s_linear_infinite]">
+              <div className="dark-only-effect absolute -inset-12 animate-[spin_25s_linear_infinite]">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-glow-cyan shadow-[0_0_10px_hsl(186_100%_50%/0.5)]" />
               </div>
-              <div className="absolute -inset-20 animate-[spin_35s_linear_infinite_reverse]">
+              <div className="dark-only-effect absolute -inset-20 animate-[spin_35s_linear_infinite_reverse]">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-glow-violet shadow-[0_0_10px_hsl(270_100%_57%/0.5)]" />
               </div>
 
               {/* Glow behind */}
-              <div className="absolute -inset-8 rounded-full opacity-40 blur-3xl"
+              <div className="dark-only-effect absolute -inset-8 rounded-full opacity-40 blur-3xl"
                 style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.2), hsl(270 100% 57% / 0.1), transparent 70%)" }} />
 
                <div className="relative w-64 h-64 rounded-full overflow-hidden border-2 border-border/30">

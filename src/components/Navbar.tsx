@@ -66,11 +66,11 @@ const Navbar = () => {
             <motion.span
               whileHover={{ rotate: -8, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className="relative flex items-center justify-center w-8 h-8 rounded-xl font-mono-code font-bold text-sm text-white overflow-hidden"
+              className="relative flex items-center justify-center w-8 h-8 rounded-xl font-mono-code font-bold text-sm text-primary-foreground overflow-hidden"
               style={{ background: "linear-gradient(135deg, hsl(var(--glow-cyan)), hsl(var(--glow-violet)))" }}
             >
               M
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <span className="dark-only-effect absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             </motion.span>
             <span className="font-mono-code font-bold text-lg tracking-tight text-foreground">
               H<span className="text-gradient-cyan-violet">.</span>

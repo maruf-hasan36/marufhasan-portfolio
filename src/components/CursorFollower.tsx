@@ -56,7 +56,7 @@ const CursorFollower = () => {
     <>
       {/* Outer glow ring */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-screen"
+        className="dark-only-effect fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-screen"
         style={{
           x: springX,
           y: springY,
@@ -73,7 +73,7 @@ const CursorFollower = () => {
       />
       {/* Inner dot */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999]"
+        className="dark-only-effect fixed top-0 left-0 pointer-events-none z-[9999]"
         style={{
           x: cursorX,
           y: cursorY,

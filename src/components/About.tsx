@@ -119,7 +119,7 @@ const About = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="glass-panel rounded-2xl p-5 md:p-6 relative overflow-hidden"
           >
-            <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
+            <div className="dark-only-effect absolute -top-24 -left-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
               style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.12), transparent 70%)" }} />
 
             <div className="relative">
@@ -139,12 +139,12 @@ const About = () => {
                   className="relative"
                 >
                   <motion.div
-                    className="absolute -inset-4 rounded-full"
+                    className="dark-only-effect absolute -inset-4 rounded-full"
                     style={{ background: "conic-gradient(from 0deg, hsl(186 100% 50% / 0.5), hsl(270 100% 57% / 0.5), transparent, hsl(186 100% 50% / 0.5))", filter: "blur(14px)" }}
                     animate={{ rotate: 360 }}
                     transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
                   />
-                  <div className="relative w-28 h-28 rounded-full p-[2px]"
+                  <div className="portrait-frame relative w-28 h-28 rounded-full p-[2px]"
                     style={{ background: "linear-gradient(135deg, hsl(186 100% 50%), hsl(270 100% 57%))", transform: "translateZ(30px)" }}>
                     <img
                       src={marufTshirt}
@@ -184,7 +184,7 @@ const About = () => {
                   onClick={handleResumeDownload}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.97 }}
-                  className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium bg-primary text-primary-foreground transition-shadow duration-300 hover:shadow-[0_0_40px_-6px_hsl(var(--glow-cyan)/0.6)]"
+                  className="quiet-action group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium bg-primary text-primary-foreground transition-shadow duration-300 hover:shadow-[0_0_40px_-6px_hsl(var(--glow-cyan)/0.6)]"
                 >
                   <Download className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" />
                   Download Resume
@@ -200,7 +200,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="glass-panel rounded-2xl p-5 md:p-6 relative overflow-hidden"
           >
-            <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
+            <div className="dark-only-effect absolute -bottom-24 -right-24 w-64 h-64 rounded-full blur-3xl pointer-events-none"
               style={{ background: "radial-gradient(circle, hsl(270 100% 57% / 0.14), transparent 70%)" }} />
 
             <div className="relative">
@@ -218,7 +218,7 @@ const About = () => {
                     initial={{ opacity: 0, scale: 0.85 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.25 + i * 0.04, type: "spring", stiffness: 320, damping: 20 }}
-                    whileHover={{ y: -3, borderColor: "hsl(186 100% 50% / 0.6)" }}
+                    whileHover={{ y: -3, borderColor: "hsl(var(--glow-cyan) / 0.6)" }}
                     className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-3 py-1.5 font-mono text-xs text-foreground/90 cursor-default"
                   >
                     <img src={s.icon} alt="" aria-hidden width={16} height={16} className="w-4 h-4 shrink-0 object-contain" />
@@ -235,7 +235,7 @@ const About = () => {
                     initial={{ opacity: 0, scale: 0.85 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.5 + i * 0.05, type: "spring", stiffness: 320, damping: 20 }}
-                    whileHover={{ y: -3, borderColor: "hsl(270 100% 57% / 0.6)" }}
+                    whileHover={{ y: -3, borderColor: "hsl(var(--glow-violet) / 0.6)" }}
                     className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/30 px-3 py-1.5 font-mono text-xs text-foreground/90 cursor-default"
                   >
                     <img src={s.icon} alt="" aria-hidden width={16} height={16} className="w-4 h-4 shrink-0 object-contain" />

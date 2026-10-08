@@ -3,11 +3,11 @@ import { Code, Server, Blocks, Layers, Cpu, Sparkles } from "lucide-react";
 import { useState, useRef } from "react";
 
 const milestones = [
-  { year: "01", title: "Learned JavaScript", desc: "Started with HTML, CSS and JavaScript fundamentals — ES6+, DOM manipulation, and async programming patterns.", icon: Code, color: "186 100% 50%" },
-  { year: "02", title: "Mastered React.js", desc: "Built modern, component-based UIs with React — hooks, state management, and reusable component architecture.", icon: Blocks, color: "200 80% 55%" },
-  { year: "03", title: "Backend with Node & Express", desc: "Developed server-side logic and REST APIs using Node.js and Express.js with clean architecture.", icon: Server, color: "230 70% 60%" },
-  { year: "04", title: "MongoDB & Full-Stack MERN", desc: "Connected MongoDB with Mongoose and shipped end-to-end MERN stack applications with authentication.", icon: Layers, color: "260 80% 60%" },
-  { year: "05", title: "Next.js & TypeScript", desc: "Building SEO-friendly, type-safe full-stack apps with Next.js, TypeScript, Prisma, and PostgreSQL.", icon: Cpu, color: "270 100% 57%" },
+  { year: "01", title: "Learned JavaScript", desc: "Started with HTML, CSS and JavaScript fundamentals — ES6+, DOM manipulation, and async programming patterns.", icon: Code, color: "var(--step-one)" },
+  { year: "02", title: "Mastered React.js", desc: "Built modern, component-based UIs with React — hooks, state management, and reusable component architecture.", icon: Blocks, color: "var(--step-two)" },
+  { year: "03", title: "Backend with Node & Express", desc: "Developed server-side logic and REST APIs using Node.js and Express.js with clean architecture.", icon: Server, color: "var(--step-three)" },
+  { year: "04", title: "MongoDB & Full-Stack MERN", desc: "Connected MongoDB with Mongoose and shipped end-to-end MERN stack applications with authentication.", icon: Layers, color: "var(--step-four)" },
+  { year: "05", title: "Next.js & TypeScript", desc: "Building SEO-friendly, type-safe full-stack apps with Next.js, TypeScript, Prisma, and PostgreSQL.", icon: Cpu, color: "var(--step-five)" },
 ];
 
 const Timeline = () => {
@@ -26,12 +26,12 @@ const Timeline = () => {
   return (
     <section id="journey" className="py-16 md:py-20 relative overflow-hidden" ref={containerRef}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px"
-        style={{ background: "linear-gradient(90deg, transparent, hsl(186 100% 50% / 0.3), transparent)" }} />
+        style={{ background: "linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent)" }} />
 
       {/* Background decoration */}
-      <div className="absolute right-0 top-1/3 -translate-y-1/2 w-[520px] h-[520px] opacity-10 pointer-events-none"
+      <div className="dark-only-effect absolute right-0 top-1/3 -translate-y-1/2 w-[520px] h-[520px] opacity-10 pointer-events-none"
         style={{ background: "radial-gradient(circle, hsl(270 100% 57% / 0.18), transparent 70%)" }} />
-      <div className="absolute left-0 bottom-1/4 -translate-x-1/3 w-[420px] h-[420px] opacity-8 pointer-events-none"
+      <div className="dark-only-effect absolute left-0 bottom-1/4 -translate-x-1/3 w-[420px] h-[420px] opacity-8 pointer-events-none"
         style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.15), transparent 70%)" }} />
 
       <div className="section-container">
@@ -61,8 +61,8 @@ const Timeline = () => {
             className="absolute left-6 md:left-1/2 top-0 bottom-32 w-px -translate-x-1/2 origin-top"
             style={{
               height: lineHeight,
-              background: "linear-gradient(180deg, hsl(186 100% 50% / 0.55), hsl(230 70% 60% / 0.55), hsl(270 100% 57% / 0.55), transparent)",
-              boxShadow: "0 0 24px hsl(186 100% 50% / 0.25)",
+              background: "linear-gradient(180deg, hsl(var(--primary) / 0.55), hsl(var(--primary) / 0.55), hsl(var(--secondary) / 0.55), transparent)",
+              boxShadow: "0 0 24px hsl(var(--primary) / 0.25)",
             }}
           />
 
@@ -154,13 +154,13 @@ const Timeline = () => {
                   <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10 top-6">
                     {/* Pulsing halo */}
                     <motion.span
-                      className="absolute inset-0 rounded-full pointer-events-none"
+                      className="dark-only-effect absolute inset-0 rounded-full pointer-events-none"
                       style={{ background: `hsl(${m.color} / 0.35)` }}
                       animate={{ scale: [1, 1.9, 1], opacity: [0.5, 0, 0.5] }}
                       transition={{ duration: 2.6, repeat: Infinity, ease: "easeOut", delay: i * 0.25 }}
                     />
                     <motion.div
-                      className="relative w-12 h-12 rounded-full flex items-center justify-center"
+                      className="timeline-node relative w-12 h-12 rounded-full flex items-center justify-center"
                       style={{
                         background: isExpanded ? `hsl(${m.color} / 0.22)` : `hsl(${m.color} / 0.08)`,
                         border: `1.5px solid hsl(${m.color} / ${isExpanded ? 0.65 : 0.25})`,
@@ -196,7 +196,7 @@ const Timeline = () => {
             <div className="glass-panel rounded-2xl px-5 py-3 flex items-center gap-4 border border-dashed border-border/60">
               <motion.div
                 className="w-10 h-10 rounded-full flex items-center justify-center"
-                style={{ background: "hsl(186 100% 50% / 0.12)", border: "1px solid hsl(186 100% 50% / 0.3)" }}
+                style={{ background: "hsl(var(--primary) / 0.12)", border: "1px solid hsl(var(--primary) / 0.3)" }}
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >

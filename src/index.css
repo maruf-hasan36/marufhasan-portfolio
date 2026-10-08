@@ -39,6 +39,21 @@
     --glow-violet: 270 100% 57%;
     --surface-glass: 240 15% 10%;
     --text-secondary: 240 5% 70%;
+    --status: 142 71% 45%;
+    --skill-frontend: 186 100% 50%;
+    --skill-backend: 270 100% 57%;
+    --skill-database: 220 80% 60%;
+    --skill-tools: 200 80% 55%;
+    --step-one: 186 100% 50%;
+    --step-two: 200 80% 55%;
+    --step-three: 230 70% 60%;
+    --step-four: 260 80% 60%;
+    --step-five: 270 100% 57%;
+    --project-primary: 186 100% 50%;
+    --project-secondary: 270 100% 70%;
+    --project-action-foreground: 240 20% 4%;
+    --project-overlay: 240 20% 4%;
+    --shadow-surface: 0 4px 20px -8px hsl(var(--foreground) / 0.08);
 
     --sidebar-background: 240 15% 6%;
     --sidebar-foreground: 240 5% 96%;
@@ -51,8 +66,8 @@
   }
 
   .light {
-    --background: 220 33% 98%;
-    --foreground: 240 20% 10%;
+    --background: 220 40% 99%;
+    --foreground: 222 35% 12%;
 
     --card: 0 0% 100%;
     --card-foreground: 240 20% 10%;
@@ -60,38 +75,52 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 20% 10%;
 
-    --primary: 190 95% 42%;
+    --primary: 221 83% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 90% 55%;
+    --secondary: 158 76% 30%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 93%;
-    --muted-foreground: 240 8% 42%;
+    --muted: 220 35% 96%;
+    --muted-foreground: 220 15% 40%;
 
-    --accent: 270 90% 55%;
+    --accent: 158 76% 30%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 18% 88%;
-    --input: 220 18% 88%;
-    --ring: 190 95% 42%;
+    --border: 220 24% 89%;
+    --input: 220 24% 89%;
+    --ring: 221 83% 48%;
 
-    --glow-cyan: 190 95% 42%;
-    --glow-violet: 270 90% 55%;
+    --glow-cyan: 221 83% 48%;
+    --glow-violet: 158 76% 30%;
     --surface-glass: 0 0% 100%;
-    --text-secondary: 240 8% 38%;
+    --text-secondary: 220 15% 35%;
+    --status: 158 76% 30%;
+    --skill-frontend: 221 83% 48%;
+    --skill-backend: 158 76% 30%;
+    --skill-database: 217 70% 40%;
+    --skill-tools: 192 80% 30%;
+    --step-one: 221 83% 48%;
+    --step-two: 192 80% 30%;
+    --step-three: 217 70% 40%;
+    --step-four: 158 76% 30%;
+    --step-five: 221 83% 48%;
+    --project-primary: 221 83% 48%;
+    --project-secondary: 158 76% 30%;
+    --project-action-foreground: 0 0% 100%;
+    --project-overlay: 220 40% 99%;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 240 20% 10%;
-    --sidebar-primary: 190 95% 42%;
+    --sidebar-primary: 221 83% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 20% 93%;
     --sidebar-accent-foreground: 240 20% 10%;
     --sidebar-border: 220 18% 88%;
-    --sidebar-ring: 190 95% 42%;
+    --sidebar-ring: 221 83% 48%;
   }
 }
 
@@ -199,4 +228,65 @@
   .font-mono-code {
     @apply font-mono;
   }
+}
+
+/* Light mode uses opaque, quiet surfaces; decorative color stays behind dark mode only. */
+.light {
+  color-scheme: light;
+}
+
+.light .dark-only-effect {
+  display: none;
+}
+
+.light .text-gradient-cyan-violet,
+.light .group:hover .group-hover\:text-gradient-cyan-violet {
+  background-image: none;
+  color: hsl(var(--primary));
+  -webkit-text-fill-color: hsl(var(--primary));
+}
+
+.light .text-gradient-white {
+  background-image: none;
+  color: hsl(var(--foreground));
+  -webkit-text-fill-color: hsl(var(--foreground));
+}
+
+.light :is(.glass-panel, .glass-panel-hover) {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+  backdrop-filter: none;
+  box-shadow: var(--shadow-surface);
+}
+
+.light .glass-panel-hover:hover {
+  background: hsl(var(--card));
+  border-color: hsl(var(--primary) / 0.3);
+  box-shadow: var(--shadow-surface);
+}
+
+.light :is(.glow-cyan, .glow-violet, .quiet-action, .timeline-node) {
+  box-shadow: var(--shadow-surface) !important;
+}
+
+.light .quiet-action {
+  background: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+.light .portrait-frame {
+  background: hsl(var(--primary)) !important;
+}
+
+.light .project-image-fade {
+  background-image: linear-gradient(to top, hsl(var(--card) / 0.18), transparent 25%);
+}
+
+.light .tech-logo[src*="nextdotjs"] {
+  filter: brightness(0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .dark-only-effect { display: none; }
 }
