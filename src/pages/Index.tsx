@@ -21,9 +21,9 @@ const Index = () => (
     <Navbar />
     <main className="relative z-10">
       <Hero />
-      <Projects />
       <About />
       <Skills />
+      <Projects />
       <Timeline />
       <Certificates />
       
