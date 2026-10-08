@@ -2,9 +2,9 @@ import { Github, Linkedin, Facebook, MessageCircle, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 const links = [
-  { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
   { label: "Journey", href: "#journey" },
   { label: "Contact", href: "#contact" },
 ];
