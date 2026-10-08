@@ -10,7 +10,7 @@ const projects = [
     title: "AI Hub — All-in-One AI Store",
     desc: "Start exploring AI smarter, faster, and easier with AI Store. A unified subscription platform giving access to the most advanced frontier AI models under one powerful interface.",
     tech: ["React", "Tailwind CSS", "Modern UI Components"],
-    color: "186 100% 50%",
+    color: "var(--project-primary)",
     github: "https://github.com/maruf-hasan36/Ai-Store",
     live: "https://dapper-naiad-0cc01a.netlify.app/",
     image: projectAiHub,
@@ -20,7 +20,7 @@ const projects = [
     title: "GoodReads — Book Community Platform",
     desc: "A responsive book management platform to discover books, share reviews, and manage user profiles. Features email/password and Google OAuth authentication, category filtering with search, an interactive review system, and protected routes with smooth responsive animations.",
     tech: ["React", "Firebase Auth", "Tailwind CSS", "OAuth"],
-    color: "270 100% 70%",
+    color: "var(--project-secondary)",
     github: "https://github.com/maruf-hasan36/B13-A8",
     live: "https://good-reads-gr.vercel.app/",
     image: projectGoodReads,
@@ -30,7 +30,7 @@ const projects = [
     title: "IdeaVault — Creative Platform",
     desc: "A MERN stack idea validation and collaboration platform to explore, submit, and manage startup ideas. Features secure JWT auth with protected routes, full CRUD via Express REST API with MongoDB, and a responsive Next.js frontend with real-time data.",
     tech: ["Next.js", "Express.js", "MongoDB", "JWT"],
-    color: "270 100% 70%",
+    color: "var(--project-secondary)",
     github: "https://github.com/maruf-hasan36",
     live: "https://assignmet-9-client.vercel.app/",
     image: projectIdeaVault,
@@ -105,7 +105,7 @@ const ProjectCard = ({
           className="w-full h-full object-cover"
           style={{ scale: imgScale }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+        <div className="project-image-fade absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
 
         {/* Year badge */}
         <div
@@ -122,7 +122,7 @@ const ProjectCard = ({
           animate={hovered ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            background: "hsl(240 20% 4% / 0.55)",
+            background: "hsl(var(--project-overlay) / 0.75)",
             backdropFilter: "blur(6px)",
           }}
         >
@@ -144,7 +144,7 @@ const ProjectCard = ({
           >
             <Github className="w-4 h-4 transition-transform duration-300 group-hover/btn:rotate-[-8deg]" />
             <span>View Code</span>
-            <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+            <span className="dark-only-effect pointer-events-none absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
           </motion.a>
 
           <motion.a
@@ -161,15 +161,15 @@ const ProjectCard = ({
             }}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.96 }}
-            className="group/btn relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold overflow-hidden transition-all duration-300"
+            className="quiet-action group/btn relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold overflow-hidden transition-all duration-300"
             style={{
               background: `linear-gradient(135deg, hsl(${project.color} / 0.95), hsl(${project.color} / 0.7))`,
-              color: "hsl(240 20% 4%)",
+              color: "hsl(var(--project-action-foreground))",
               boxShadow: `0 8px 24px -8px hsl(${project.color} / 0.6), 0 0 0 1px hsl(${project.color} / 0.4) inset`,
             }}
           >
             <span>View Project</span>
-            <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+            <span className="dark-only-effect pointer-events-none absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/40 to-transparent" />
           </motion.a>
         </motion.div>
       </div>
@@ -200,7 +200,7 @@ const ProjectCard = ({
 
       {/* Bottom glow */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+        className="dark-only-effect absolute bottom-0 left-0 right-0 h-40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
         style={{
           background: `radial-gradient(ellipse at bottom, hsl(${project.color} / 0.1), transparent)`,
         }}

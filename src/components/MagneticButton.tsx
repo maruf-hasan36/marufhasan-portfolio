@@ -26,7 +26,7 @@ const MagneticButton = ({ children, variant = "primary", onClick, href }: Magnet
   const baseClasses = "relative px-8 py-4 rounded-full text-base font-medium tracking-wide cursor-pointer transition-all duration-300 inline-flex items-center gap-2";
 
   const variantClasses = variant === "primary"
-    ? "bg-primary text-primary-foreground hover:shadow-[0_0_40px_-5px_hsl(var(--glow-cyan)/0.5)]"
+    ? "quiet-action bg-primary text-primary-foreground hover:shadow-[0_0_40px_-5px_hsl(var(--glow-cyan)/0.5)]"
     : "glass-panel text-foreground hover:border-foreground/30";
 
   const Tag = href ? "a" : "button";
@@ -46,7 +46,7 @@ const MagneticButton = ({ children, variant = "primary", onClick, href }: Magnet
         className={`${baseClasses} ${variantClasses}`}
       >
         {variant === "primary" && (
-          <span className="absolute inset-0 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-500"
+          <span className="dark-only-effect absolute inset-0 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-500"
             style={{
               background: "linear-gradient(135deg, hsl(186 100% 50% / 0.2), hsl(270 100% 57% / 0.2))",
             }}

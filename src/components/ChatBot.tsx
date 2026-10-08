@@ -104,14 +104,14 @@ const ChatBot = () => {
       <motion.button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close chat" : "Open AI chat"}
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-background shadow-[0_0_30px_-5px_hsl(var(--primary))]"
+        className="quiet-action fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-background shadow-[0_0_30px_-5px_hsl(var(--primary))]"
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.8 }}
       >
-        <span className="absolute inset-0 animate-ping rounded-full bg-primary/30" />
+        <span className="dark-only-effect absolute inset-0 animate-ping rounded-full bg-primary/30" />
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={open ? "x" : "chat"}
@@ -138,13 +138,13 @@ const ChatBot = () => {
           >
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-border/60 bg-gradient-to-r from-primary/10 to-accent/10 px-4 py-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-background">
+              <div className="quiet-action flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-background">
                 <Bot className="h-5 w-5" />
               </div>
               <div className="min-w-0">
                 <p className="text-sm font-semibold text-foreground">Maruf AI</p>
                 <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-400" /> Online
+                  <span className="h-1.5 w-1.5 rounded-full bg-status" /> Online
                 </p>
               </div>
             </div>
@@ -233,7 +233,7 @@ const ChatBot = () => {
                 disabled={loading || !input.trim()}
                 whileHover={{ scale: 1.06 }}
                 whileTap={{ scale: 0.94 }}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-background disabled:opacity-40"
+                className="quiet-action flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-background disabled:opacity-40"
               >
                 <Send className="h-4 w-4" />
               </motion.button>

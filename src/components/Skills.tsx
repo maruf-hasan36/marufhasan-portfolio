@@ -9,7 +9,7 @@ import {
 const categories = [
   {
     title: "Frontend",
-    color: "186 100% 50%",
+    color: "var(--skill-frontend)",
     skills: [
       { name: "HTML5 & CSS3", icon: FileCode, desc: "Semantic markup & modern styling" },
       { name: "Tailwind CSS", icon: Palette, desc: "Utility-first responsive design" },
@@ -23,7 +23,7 @@ const categories = [
   },
   {
     title: "Backend",
-    color: "270 100% 57%",
+    color: "var(--skill-backend)",
     skills: [
       { name: "Node.js", icon: Server, desc: "Server-side JavaScript runtime" },
       { name: "Express.js", icon: Globe, desc: "REST API development & routing" },
@@ -32,7 +32,7 @@ const categories = [
   },
   {
     title: "Database & ORM",
-    color: "220 80% 60%",
+    color: "var(--skill-database)",
     skills: [
       { name: "MongoDB / Atlas", icon: Database, desc: "NoSQL document database & Mongoose" },
       { name: "MySQL", icon: Database, desc: "Relational SQL database" },
@@ -42,7 +42,7 @@ const categories = [
   },
   {
     title: "Auth, Payments & Tools",
-    color: "200 80% 55%",
+    color: "var(--skill-tools)",
     skills: [
       { name: "JWT / Better Auth", icon: Lock, desc: "Secure auth & user management" },
       { name: "Stripe Payments", icon: CreditCard, desc: "Payment integration & checkout" },
@@ -83,7 +83,7 @@ const SkillCard = ({ skill, index, catColor }: {
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       className="glass-panel-hover rounded-xl p-3 cursor-default group relative overflow-hidden"
     >
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+      <div className="dark-only-effect absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{ background: `radial-gradient(circle at 50% 50%, hsl(${catColor} / 0.06), transparent 70%)` }} />
 
       <div className="relative sm:flex sm:items-center sm:gap-3" style={{ transform: "translateZ(20px)" }}>

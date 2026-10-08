@@ -55,6 +55,7 @@ export default {
         "glow-violet": "hsl(var(--glow-violet))",
         "surface-glass": "hsl(var(--surface-glass))",
         "text-secondary": "hsl(var(--text-secondary))",
+        status: "hsl(var(--status))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
