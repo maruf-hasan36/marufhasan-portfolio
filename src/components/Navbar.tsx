@@ -147,13 +147,27 @@ const Navbar = () => {
             </motion.button>
 
             {/* Mobile menu button */}
-            <button
+            <motion.button
               onClick={() => setMobileOpen(!mobileOpen)}
+              whileTap={{ scale: 0.85 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
               className="md:hidden p-2.5 rounded-full hover:bg-muted transition-colors"
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
             >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={mobileOpen ? "close" : "open"}
+                  initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.2 }}
+                  className="block"
+                >
+                  {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </motion.span>
+              </AnimatePresence>
+            </motion.button>
           </div>
         </div>
       </motion.nav>
