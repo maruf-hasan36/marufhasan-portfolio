@@ -48,6 +48,22 @@ const Navbar = () => {
     };
   }, []);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      history.replaceState(null, "", window.location.pathname);
+      return;
+    }
+    const target = document.querySelector(href);
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - 88;
+    window.scrollTo({ top, behavior: "smooth" });
+    history.replaceState(null, "", href);
+    setActiveSection(href);
+  };
+
   return (
     <>
       <motion.nav
