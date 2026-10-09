@@ -5,4 +5,4 @@
 - [x] Improve portfolio SEO and sitemap coverage
 - [x] Make content order and sections recruiter-friendly
 - [x] Replace hero stats with branded tech badges
-- [ ] Clean up the light theme using the reference palette, prevent overlapping color effects, and keep all visitor-facing text English
+- [x] Clean up the light theme using the reference palette, prevent overlapping color effects, and keep all visitor-facing text English
