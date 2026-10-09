@@ -78,7 +78,7 @@ const Navbar = () => {
           }`}
         >
           {/* Logo */}
-          <a href="#" className="relative group flex items-center gap-2 select-none">
+          <a href="#" onClick={(e) => scrollToSection(e, "#")} className="relative group flex items-center gap-2 select-none">
             <motion.span
               whileHover={{ rotate: -8, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -100,6 +100,7 @@ const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
+                onClick={(e) => scrollToSection(e, l.href)}
                 className={`relative text-sm px-3.5 py-2 rounded-full transition-colors duration-300 ${
                   activeSection === l.href
                     ? "text-foreground"
@@ -171,7 +172,7 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              onClick={() => setMobileOpen(false)}
+              onClick={(e) => scrollToSection(e, l.href)}
               className="text-sm py-3 px-4 rounded-xl hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
             >
               {l.label}
