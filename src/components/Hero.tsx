@@ -132,31 +132,53 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Hero Photo */}
-          <motion.div
-            variants={childVariants}
-            className="hidden lg:flex items-center justify-center relative"
-          >
-            <div className="relative">
-              {/* Orbiting rings */}
-              <div className="dark-only-effect absolute -inset-12 rounded-full border border-border/20 animate-[spin_25s_linear_infinite]" />
-              <div className="dark-only-effect absolute -inset-20 rounded-full border border-border/10 animate-[spin_35s_linear_infinite_reverse]" />
-              {/* Orbiting dots */}
-              <div className="dark-only-effect absolute -inset-12 animate-[spin_25s_linear_infinite]">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-glow-cyan shadow-[0_0_10px_hsl(186_100%_50%/0.5)]" />
-              </div>
-              <div className="dark-only-effect absolute -inset-20 animate-[spin_35s_linear_infinite_reverse]">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-glow-violet shadow-[0_0_10px_hsl(270_100%_57%/0.5)]" />
+          {/* Hero Photo — orbiting arcs + floating tech badges */}
+          <motion.div variants={childVariants} className="hidden lg:flex items-center justify-center relative">
+            <div className="relative w-[340px] h-[340px]">
+              {/* Soft glow behind the portrait */}
+              <div className="dark-only-effect absolute inset-0 rounded-full opacity-40 blur-3xl"
+                style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.22), hsl(270 100% 57% / 0.12), transparent 70%)" }} />
+
+              {/* Rotating colored arc ring — layer 1 (cyan) */}
+              <svg className="dark-only-effect absolute -inset-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] animate-[spin_26s_linear_infinite]" viewBox="0 0 100 100" fill="none" aria-hidden>
+                <circle cx="50" cy="50" r="48.5" stroke="hsl(var(--glow-cyan) / 0.55)" strokeWidth="0.7" strokeLinecap="round" strokeDasharray="34 68" />
+                <circle cx="50" cy="50" r="48.5" stroke="hsl(var(--glow-violet) / 0.4)" strokeWidth="0.7" strokeLinecap="round" strokeDasharray="12 90" strokeDashoffset="-48" />
+              </svg>
+
+              {/* Rotating colored arc ring — layer 2 (counter-rotation) */}
+              <svg className="dark-only-effect absolute -inset-10 w-[calc(100%+5rem)] h-[calc(100%+5rem)] animate-[spin_40s_linear_infinite_reverse]" viewBox="0 0 100 100" fill="none" aria-hidden>
+                <circle cx="50" cy="50" r="48.5" stroke="hsl(var(--glow-violet) / 0.35)" strokeWidth="0.6" strokeLinecap="round" strokeDasharray="26 71" />
+                <circle cx="50" cy="50" r="48.5" stroke="hsl(var(--glow-cyan) / 0.3)" strokeWidth="0.6" strokeLinecap="round" strokeDasharray="9 88" strokeDashoffset="-38" />
+              </svg>
+
+              {/* Static dashed guide ring */}
+              <div className="dark-only-effect absolute inset-0 rounded-full border border-dashed border-border/40" />
+
+              {/* Portrait */}
+              <div className="absolute inset-6 rounded-full overflow-hidden border-2 border-border/40 shadow-[0_20px_60px_-20px_hsl(var(--foreground)/0.35)]">
+                <img src={marufPhoto} alt="Maruf Hasan, MERN stack developer in Dhaka" width={544} height={800} fetchPriority="high" decoding="async" className="w-full h-full object-cover object-top" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-t from-background/45 via-transparent to-transparent" />
               </div>
 
-              {/* Glow behind */}
-              <div className="dark-only-effect absolute -inset-8 rounded-full opacity-40 blur-3xl"
-                style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.2), hsl(270 100% 57% / 0.1), transparent 70%)" }} />
-
-               <div className="relative w-64 h-64 rounded-full overflow-hidden border-2 border-border/30">
-                 <img src={marufPhoto} alt="Maruf Hasan, MERN stack developer in Dhaka" width={544} height={800} fetchPriority="high" decoding="async" className="w-full h-full object-cover object-top" />
-                <div className="absolute inset-0 rounded-full bg-gradient-to-t from-background/40 via-transparent to-transparent" />
-              </div>
+              {/* Floating tech badges */}
+              {[
+                { label: "React", icon: reactIcon, className: "top-0 -left-6", accent: "text-glow-cyan", delay: 0 },
+                { label: "Next.js", icon: nextIcon, className: "top-6 -right-8", accent: "text-foreground", delay: 0.6 },
+                { label: "Node.js", icon: nodeIcon, className: "bottom-6 -right-6", accent: "text-glow-violet", delay: 1.2 },
+                { label: "MongoDB", icon: mongoIcon, className: "bottom-0 -left-8", accent: "text-glow-cyan", delay: 1.8 },
+              ].map((badge) => (
+                <motion.div
+                  key={badge.label}
+                  animate={{ y: [0, -9, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: badge.delay }}
+                  className={`absolute z-10 ${badge.className}`}
+                >
+                  <div className="glass-panel-hover inline-flex items-center gap-2 rounded-full px-3.5 py-2 shadow-[var(--shadow-surface)]">
+                    <img src={badge.icon} alt="" aria-hidden width={18} height={18} className="tech-logo w-4 h-4 object-contain" />
+                    <span className={`font-mono text-xs font-semibold ${badge.accent}`}>{badge.label}</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </motion.div>
