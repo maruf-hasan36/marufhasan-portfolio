@@ -58,8 +58,7 @@ const Navbar = () => {
     }
     const target = document.querySelector(href);
     if (!target) return;
-    const top = target.getBoundingClientRect().top + window.scrollY - 88;
-    window.scrollTo({ top, behavior: "smooth" });
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
     history.replaceState(null, "", href);
     setActiveSection(href);
   };
