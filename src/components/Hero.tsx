@@ -139,20 +139,20 @@ const Hero = () => {
               <div className="dark-only-effect absolute inset-0 rounded-full opacity-40 blur-3xl"
                 style={{ background: "radial-gradient(circle, hsl(186 100% 50% / 0.22), hsl(270 100% 57% / 0.12), transparent 70%)" }} />
 
-              {/* Rotating colored arc ring — layer 1 (cyan) */}
-              <svg className="dark-only-effect absolute -inset-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] animate-[spin_26s_linear_infinite]" viewBox="0 0 100 100" fill="none" aria-hidden>
+              {/* Rotating colored arc ring — layer 1 (cyan / red in light) */}
+              <svg className="hero-arc-ring absolute -inset-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] animate-[spin_26s_linear_infinite]" viewBox="0 0 100 100" fill="none" aria-hidden>
                 <circle cx="50" cy="50" r="48.5" stroke="hsl(var(--glow-cyan) / 0.55)" strokeWidth="0.7" strokeLinecap="round" strokeDasharray="34 68" />
                 <circle cx="50" cy="50" r="48.5" stroke="hsl(var(--glow-violet) / 0.4)" strokeWidth="0.7" strokeLinecap="round" strokeDasharray="12 90" strokeDashoffset="-48" />
               </svg>
 
               {/* Rotating colored arc ring — layer 2 (counter-rotation) */}
-              <svg className="dark-only-effect absolute -inset-10 w-[calc(100%+5rem)] h-[calc(100%+5rem)] animate-[spin_40s_linear_infinite_reverse]" viewBox="0 0 100 100" fill="none" aria-hidden>
+              <svg className="hero-arc-ring absolute -inset-10 w-[calc(100%+5rem)] h-[calc(100%+5rem)] animate-[spin_40s_linear_infinite_reverse]" viewBox="0 0 100 100" fill="none" aria-hidden>
                 <circle cx="50" cy="50" r="48.5" stroke="hsl(var(--glow-violet) / 0.35)" strokeWidth="0.6" strokeLinecap="round" strokeDasharray="26 71" />
                 <circle cx="50" cy="50" r="48.5" stroke="hsl(var(--glow-cyan) / 0.3)" strokeWidth="0.6" strokeLinecap="round" strokeDasharray="9 88" strokeDashoffset="-38" />
               </svg>
 
               {/* Static dashed guide ring */}
-              <div className="dark-only-effect absolute inset-0 rounded-full border border-dashed border-border/40" />
+              <div className="hero-ring-dashed absolute inset-0 rounded-full border border-dashed border-border/40" />
 
               {/* Portrait */}
               <div className="absolute inset-6 rounded-full overflow-hidden border-2 border-border/40 shadow-[0_20px_60px_-20px_hsl(var(--foreground)/0.35)]">

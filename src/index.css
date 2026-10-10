@@ -289,7 +289,17 @@
   filter: brightness(0.35);
 }
 
+/* Hero orbiting rings stay visible in light mode as crisp red/black arcs. */
+.light .hero-arc-ring circle {
+  stroke-width: 1.1;
+}
+
+.light .hero-ring-dashed {
+  border-color: hsl(var(--border) / 0.5);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .dark-only-effect { display: none; }
+  .hero-arc-ring { display: none; }
 }
